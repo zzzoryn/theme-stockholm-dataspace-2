@@ -1,0 +1,83 @@
+{{! Page heading }}
+<div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
+     data-heading-style="{{settings.page_heading_style}}"
+>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs">
+      {{breadcrumbs}}
+    </div>
+
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title">{{category.name}}</h1>
+        {{#if category.description}}
+          <p class="page-heading__description">{{category.description}}</p>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container page-content">
+
+  {{#if sections}}
+    <div class="row sections sections--type-{{settings.section_blocks_type}}">
+      {{#each sections}}
+        <div class="col">
+          <div class="sections__item">
+            <a href="{{url}}"><h3 class="categories__title">{{name}}</h3></a>
+            {{#if description}}
+              <p class="categories__description">{{excerpt description characters=80}}</p>
+            {{/if}}
+
+            {{#if sections}}
+              <div class="row articles articles--simple">
+                {{! Section list }}
+                {{#each sections}}
+                  <div class="col--md-6">
+                    <a href="{{url}}" class="articles__link articles__link--block">
+                      <span>{{name}}</span>
+                      <i class="fas fa-angle-right"></i>
+                    </a>
+                  </div>
+                {{/each}}
+              </div>
+            {{/if}}
+
+            <div class="row articles articles--simple">
+              {{! Article list }}
+              {{#each articles}}
+                <div class="col--md-6">
+                  <a href="{{url}}" class="articles__link {{#if promoted}}articles__link--promoted{{/if}} {{#if internal}}articles__link--internal{{/if}}">
+                    {{title}}
+                  </a>
+                </div>
+              {{/each}}
+
+              {{#if more_articles}}
+                <div class="col articles__more">
+                  <a href="{{url}}" class="btn btn--sm btn--primary">
+                    <span>{{t 'show_all_articles' count=article_count}}</span>
+                    <i class="fas fa-chevron-right is-hidden--rtl"></i>
+                    <i class="fas fa-chevron-left is-hidden--ltr"></i>
+                  </a>
+                </div>
+              {{/if}}
+            </div>
+
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <div class="no-content">
+      <p>{{t 'no_content'}}</p>
+      <a href="/hc">{{t 'back_to_homepage'}}</a>
+    </div>
+  {{/if}}
+</div>

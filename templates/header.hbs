@@ -1,0 +1,184 @@
+{{#if settings.inject_body}}
+  <script>
+    document.write(({{json_stringify settings.inject_body}}).replace(/(&lt;)/g, '<').replace(/(&gt;)/g, '>'));
+  </script>
+{{/if}}
+
+{{! Sprites}}
+<svg class="is-hidden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <symbol id="search" viewBox="0 0 16 16">
+    <path d="M15.9023 14.9597L11.2545 10.3118C12.136 9.22342 12.6667 7.8398 12.6667 6.33336C12.6667 2.84116 9.82552 0 6.33333 0C2.84113 0 0 2.84116 0 6.33336C0 9.82555 2.84116 12.6667 6.33336 12.6667C7.8398 12.6667 9.22342 12.136 10.3118 11.2545L14.9597 15.9024C15.0899 16.0325 15.3009 16.0325 15.4311 15.9024L15.9024 15.4311C16.0325 15.3009 16.0325 15.0898 15.9023 14.9597ZM6.33336 11.3334C3.5762 11.3334 1.33335 9.09052 1.33335 6.33336C1.33335 3.57619 3.5762 1.33335 6.33336 1.33335C9.09052 1.33335 11.3334 3.57619 11.3334 6.33336C11.3334 9.09052 9.09052 11.3334 6.33336 11.3334Z" fill="currentColor"/>
+  </symbol>
+
+  <symbol id="arrow-bottom" viewBox="0 0 24 24">
+    <path d="M12 12.071L8.17903 8.25001C7.76503 7.83601 7.09303 7.83601 6.67903 8.25001C6.26503 8.66401 6.26503 9.33601 6.67903 9.75001L11.293 14.364C11.684 14.755 12.317 14.755 12.707 14.364L17.321 9.75001C17.735 9.33601 17.735 8.66401 17.321 8.25001C16.907 7.83601 16.235 7.83601 15.821 8.25001L12 12.071Z" fill="currentColor"/>
+  </symbol>
+</svg>
+
+{{! Devices }}
+<div class="is-mobile"></div>
+<div class="is-tablet"></div>
+<div class="is-desktop"></div>
+
+{{! Theme Header }}
+<div class="layout {{#if settings.layout_in_container}}layout--in-container{{/if}} layout--style-{{settings.layout_style}}">
+
+  {{! Mobile menu modal }}
+  <div id="modal-menu" class="modal" data-plugin-modal='{"position": "right"}'>
+    <div class="modal__content-scroll mobile-menu">
+      <div class="mobile-menu__group">
+        <a href="#modal-search" role="button" class="dropdown__menuitem" role="menuitem">
+          {{t 'search'}}
+        </a>
+        <a href="/hc/requests/new" class="dropdown__menuitem" role="menuitem">
+          {{t 'submit_a_request'}}
+        </a>
+      </div>
+
+      {{#if settings.signin_enable}}
+        <div class="mobile-menu__group">
+          {{#if signed_in}}
+            {{#my_profile class="dropdown__menuitem" role="menuitem"}}{{t 'profile'}}{{/my_profile}}
+            {{link "requests" class="dropdown__menuitem" role="menuitem"}}
+            {{#link "contributions" class="dropdown__menuitem" role="menuitem"}}{{t "activities"}}{{/link}}
+            {{contact_details class="dropdown__menuitem" role="menuitem"}}
+            {{change_password class="dropdown__menuitem" role="menuitem"}}
+            {{link "sign_out" class="dropdown__menuitem" role="menuitem"}}
+          {{else}}
+            {{#link "sign_in" class='dropdown__menuitem' role="menuitem"}}
+              {{t 'sign_in'}}
+            {{/link}}
+          {{/if}}
+        </div>
+      {{/if}}
+
+      {{#if alternative_locales}}
+        <div class="mobile-menu__group">
+          {{#each alternative_locales}}
+            <a href="{{url}}" dir="{{direction}}" class="dropdown__menuitem" rel="nofollow" role="menuitem">
+              {{name}}
+            </a>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+
+  {{! Search modal }}
+  <div id="modal-search" class="modal" data-plugin-search-modal='{"position": "top"}'>
+    <div class="container container--md modal-search">
+      <h2 class="h1">
+        {{#is settings.welcome_title '-'}}
+          {{#is help_center.locale 'en-us'}}Hey, how can we help?{{/is}}
+          {{#is help_center.locale 'nl'}}Hey, hoe kunnen we je helpen?{{/is}}
+          {{#is help_center.locale 'fr'}}Hé, comment pouvons-nous vous aider?{{/is}}
+          {{#is help_center.locale 'de-de'}}Hey, wie können wir Ihnen helfen?{{/is}}
+          {{#is help_center.locale 'de'}}Hey, wie können wir Dir helfen?{{/is}}
+        {{else}}
+          {{#if settings.translations_enable}}
+            {{dc settings.welcome_title}}
+          {{else}}
+            {{settings.welcome_title}}
+          {{/if}}
+        {{/is}}
+      </h2>
+      {{#is settings.search_placeholder '-'}}
+        {{#is help_center.locale 'en-us'}}{{search instant=true placeholder="Type your question here..."}}{{/is}}
+        {{#is help_center.locale 'nl'}}{{search instant=true placeholder="Tik hier je vraag..."}}{{/is}}
+        {{#is help_center.locale 'fr'}}{{search instant=true placeholder="Posez votre question ici..."}}{{/is}}
+        {{#is help_center.locale 'de-de'}}{{search instant=true placeholder="Geben Sie hier ihre Frage ein..."}}{{/is}}
+        {{#is help_center.locale 'de'}}{{search instant=true placeholder="Gib hier Deine Frage ein..."}}{{/is}}
+      {{else}}
+        {{#if settings.translations_enable}}
+          {{search instant=true placeholder=(dc settings.search_placeholder)}}
+        {{else}}
+          {{search instant=true placeholder=settings.search_placeholder}}
+        {{/if}}
+      {{/is}}
+      <div class="popular-searches is-hidden js-popular-searches"></div>
+    </div>
+  </div>
+
+  <div class="custom-header-container">
+    <div class="container">
+      <div class="topbar">
+        <div class="topbar__menu">
+          <a href="#">News</a>
+          <a href="#">Events</a>
+          <a href="#">Gallery</a>
+          <a href="#">About</a>
+        </div>
+      </div>
+      <div class="custom-header">
+        <a href="/hc/{{help_center.locale}}" class="custom-header__logo">
+          <img src="{{settings.logo}}" alt="{{help_center.name}}">
+        </a>
+        <div class="custom-header__right">
+          <ul class="custom-header__menu">
+            <li>
+              <span>Explore data</span>
+              <ul>
+                <li><a href="#">Free offering</a></li>
+                <li><a href="#">Copernicus Contributing Missions</a></li>
+                <li><a href="#">Federated data access</a></li>
+              </ul>
+            </li>
+            <li>
+              <span>Tools</span>
+              <ul>
+                <li><a href="#">Browser</a></li>
+                <li><a href="#">Market place</a></li>
+                <li><a href="#">Jupyter Hub</a></li>
+                <li><a href="#">Data workspace</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Traceability</a></li>
+              </ul>
+            </li>
+            <li>
+              <span>API’s</span>
+              <ul>
+                <li><a href="#">Catalogue</a></li>
+                <li><a href="#">OpenEO</a></li>
+                <li><a href="#">Sentinel Hub</a></li>
+                <li><a href="#">Traceability</a></li>
+                <li><a href="#">On demand</a></li>
+              </ul>
+            </li>
+            <li>
+              <span>Ecosystem</span>
+              <ul>
+                <li><a href="#">Compute & Virtual machines</a></li>
+                <li><a href="#">Storage</a></li>
+                <li><a href="#">Managed Kubernetes</a></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="custom-header__buttons">
+            <a href="/hc/{{help_center.locale}}/requests/new" class="btn btn--color-secondary">{{t 'submit_a_request'}}</a>
+
+            {{#if settings.signin_enable}}
+              {{#if signed_in}}
+                <div class="dropdown" data-plugin-dropdown>
+                  <button class="btn btn--circle header__avatar js-dropdown-open" tabindex="0" role="button" aria-label="Open">
+                    {{user_avatar class="user-avatar"}}
+                  </button>
+                  <div class="dropdown__content dropdown__content--xs js-dropdown" role="menu" aria-hidden="true">
+                    {{#my_profile class="dropdown__menuitem" role="menuitem"}}{{t 'profile'}}{{/my_profile}}
+                    {{link "requests" class="dropdown__menuitem" role="menuitem"}}
+                    {{#link "contributions" class="dropdown__menuitem" role="menuitem"}}{{t "activities"}}{{/link}}
+                    {{contact_details class="dropdown__menuitem" role="menuitem"}}
+                    {{change_password class="dropdown__menuitem" role="menuitem"}}
+                    {{link "sign_out" class="dropdown__menuitem" role="menuitem"}}
+                  </div>
+                </div>
+              {{else}}
+                {{#link "sign_in" class='btn btn--secondary'}}
+                  {{t 'sign_in'}}
+                {{/link}}
+              {{/if}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

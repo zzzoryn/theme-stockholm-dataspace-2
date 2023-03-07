@@ -1,0 +1,269 @@
+{{! Page heading }}
+<div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
+     data-heading-style="{{settings.page_heading_style}}"
+>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" alt="{{article.title}}" data-plugin-article-load-image='{"bg": "{{settings.welcome_bg}}"}'>
+    <img class="welcome__bg-image is-hidden--ui-light" alt="{{article.title}}" data-plugin-article-load-image='{"bg": "{{settings.welcome_bg_dark}}"}'>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs">
+      {{breadcrumbs}}
+    </div>
+
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title {{#if article.promoted}}articles__link--promoted{{/if}} {{#if article.internal}}articles__link--internal{{/if}}">{{article.title}}</h1>
+        <div class="page-heading__meta-container">
+          <div class="page-heading__meta">
+            {{#if settings.date_enable}}
+              <b>Date</b>
+              <span>{{date article.updated_at}}</span>
+            {{/if}}
+          </div>
+        </div>
+
+      </div>
+      <div class="subscribe-btn page-heading__content-right">
+        {{subscribe}}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container page-content page-content--with-bg">
+  <div class="row page-content__article  page-content__article--{{settings.article_content_size}}" data-article-container>
+
+
+    {{! Article body }}
+    <div class="col {{#is settings.article_content_size 'small'}}col--lg-xl-10{{/is}}{{#is settings.article_content_size 'medium'}}col--lg-up-8 offset--lg-up-2{{/is}} page-content__center-col">
+      <div class="markdown" itemprop="articleBody" data-article-body data-plugin-formatting>
+        {{article.body}}
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="row">
+    <div class="col--lg-up-8 offset--lg-up-2">
+      <div class="page-content__box labels-box">
+        <div class="row">
+
+          {{! Article content tags }}
+          {{#if (compare article.content_tags.length ">" 0)}}
+            <div class="col page-content__box-col">
+              <p class="labels-title">{{t 'content_tags_label'}}:</p>
+              <div class="labels">
+                {{#each article.content_tags}}
+                  {{#link "search_result" content_tag_id=id class="btn btn--xs btn--gray"}}
+                    <svg width="12" height="12"><use xlink:href="#search"></use></svg>
+                    <span>{{name}}</span>
+                  {{/link}}
+                {{/each}}
+              </div>
+            </div>
+          {{/if}}
+
+          {{! Article share }}
+          {{#if settings.share_enable}}
+            <div class="col page-content__box-col">
+              {{share}}
+            </div>
+          {{/if}}
+
+        </div>
+      </div>
+
+      {{! Article attachments }}
+      {{#if attachments}}
+        <div class="page-content__bordered-box attachments">
+          <h4>{{t 'attachments_heading'}}</h4>
+          {{#each attachments}}
+            <a class="attachments__item" href="{{url}}" target="_blank">
+              <i class="fas fa-paperclip"></i>
+              <span class="attachments__item-name">{{name}}</span>
+              <span class="attachments__item-size">({{size}})</span>
+            </a>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{! Vote }}
+      {{#if settings.vote_enable}}
+        <div class="page-content__box">
+          <div class="vote vote--style-{{settings.vote_style}}">
+            <div data-plugin-vote-progress>
+              {{#with article}}
+                <div class="vote__progress js-progress"></div>
+
+                {{vote 'count' class='is-hidden vote-count'}}
+                {{vote 'sum' class='is-hidden vote-sum'}}
+
+                <h4 class="vote__heading vote__content">{{t 'was_this_article_helpful'}}</h4>
+
+                <div class="vote__controls">
+                  {{vote 'down' class='vote__btn vote__btn--down' selected_class='vote__btn--selected' role='button'}}
+                  {{vote 'up' class='vote__btn vote__btn--up' selected_class='vote__btn--selected' role='button'}}
+                </div>
+
+                <div class="vote__content">{{vote 'label' class='article-vote-label'}}</div>
+              {{/with}}
+            </div>
+
+          </div>
+
+        </div>
+      {{/if}}
+
+      {{! Article lists }}
+      {{#isnt settings.article_lists 'none'}}
+        <div class="page-content__bordered-box">
+          <div class="row">
+
+            {{! Recent articles }}
+            {{#isnt settings.article_lists 'related_section'}}
+              <div class="col--md-up-6 page-content__box-col">
+                {{recent_articles}}
+              </div>
+            {{/isnt}}
+
+            {{! Related articles }}
+            {{#isnt settings.article_lists 'recent_section'}}
+              <div class="col--md-up-6 page-content__box-col">
+                {{related_articles}}
+              </div>
+            {{/isnt}}
+
+            {{! Article in this section }}
+            {{#isnt settings.article_lists 'recent_related'}}
+              <div class="col--md-up-6 page-content__box-col">
+                <section class="recent-articles">
+                  <h3>{{t 'articles_in_section'}}</h3>
+                  <ul data-plugin-list-limit='{"limit": 5}'>
+                    {{#each section.articles}}
+                      <li><a href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                  </ul>
+                </section>
+              </div>
+            {{/isnt}}
+
+          </div>
+        </div>
+      {{/isnt}}
+    </div>
+  </div>
+</div>
+
+{{! Comments }}
+{{#if settings.comments_enable}}
+  <div class="section section--secondary section--padding comments">
+    <div class="container">
+      <div class="row">
+        <div class="col--lg-up-8 offset--lg-up-2">
+          <h3 class="comments__title">{{t 'add_comment'}}</h3>
+          <p class="comments__subtitle">{{comment_callout}}</p>
+
+          {{#form 'comment' class='comment-form'}}
+            {{user_avatar class='comment-form__avatar'}}
+            <div class="comment-form__body">
+              {{wysiwyg 'body'}}
+              <button type="submit" class="comment-form__submit">
+                <i class="fab fa-telegram-plane"></i>
+              </button>
+            </div>
+          {{/form}}
+
+          {{#if comments}}
+            <div class="page-content__bordered-box">
+
+              <div class="row">
+                <div class="col--xs-up-6">
+                  <h3 class="comments__title">{{t 'comments'}}</h3>
+                  <p class="comments__subtitle">{{t 'comments_count' count=article.comment_count}}</p>
+                </div>
+
+                <div class="col--xs-up-6 comments__sorted">
+                  <div class="dropdown" data-plugin-dropdown>
+                    <a class="btn btn--md btn--color-primary js-dropdown-open" tabindex="0" role="button" aria-label="Open">
+                      {{t 'sort_by'}}
+                    </a>
+                    <div class="dropdown__content dropdown__content--xs js-dropdown" role="menu" aria-hidden="true">
+                      {{#each comment_sorters}}
+                        <a href="{{url}}" class="dropdown__menuitem" role="menuitem" aria-selected="{{selected}}">
+                          {{name}}
+                        </a>
+                      {{/each}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="comments__list" id="comments">
+                {{#each comments}}
+                  <li class="comments__item" id="{{anchor}}">
+
+                    <a class="comments__item-avatar" href="{{author.url}}">
+                      <img src="{{author.avatar_url}}" alt="{{author.name}}">
+                    </a>
+
+                    <div class="comments__item-container">
+                      <div class="comments__item-body">
+                        {{#with ticket}}
+                          <a href="{{url}}" class="comments__item-body-with-ticket">
+                            {{t 'request'}}{{id}}
+                          </a>
+                        {{/with}}
+                        {{body}}
+                      </div>
+                      <div class="comments__item-meta">
+                        <div class="comments__item-meta-left">
+                          {{#link 'user_profile' id=author.id}}
+                            {{author.name}}
+                          {{/link}}
+
+                          <span>
+                            {{#if editor}}
+                              {{date edited_at timeago=true}}
+                            {{else}}
+                              {{date created_at timeago=true}}
+                            {{/if}}
+                          </span>
+                        </div>
+
+                        <div class="comments__item-actions-container">
+                          {{#unless official}}
+                            <div class="comments__item-vote">
+                              {{#vote 'down' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
+                                <span>-</span>
+                              {{/vote}}
+                              <span>{{vote 'sum'}}</span>
+                              {{#vote 'up' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
+                                <span>+</span>
+                              {{/vote}}
+                            </div>
+                          {{/unless}}
+                          <div class="comments__item-actions">
+                            {{actions}}
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </li>
+                {{/each}}
+              </ul>
+
+              {{pagination}}
+
+            </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}

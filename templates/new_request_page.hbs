@@ -1,0 +1,31 @@
+{{! Page heading }}
+<div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
+     data-heading-style="{{settings.page_heading_style}}"
+>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs">
+      {{breadcrumbs}}
+    </div>
+
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title">{{t 'submit_a_request'}}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container page-content">
+  <div class="row">
+    <div class="col col--md-8 col--lg-up-6">
+      <div class="form-container">
+        {{request_form}}
+      </div>
+    </div>
+  </div>
+</div>

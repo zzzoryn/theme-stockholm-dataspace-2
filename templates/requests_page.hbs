@@ -1,0 +1,121 @@
+{{! Page heading }}
+<div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
+     data-heading-style="{{settings.page_heading_style}}"
+>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs">
+      {{breadcrumbs}}
+    </div>
+
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title">{{t 'my_activities' }}</h1>
+        <div class="page-heading__nav">
+          <span class="btn btn--md btn--secondary is-active no-hover">{{t 'requests'}}</span>
+          {{link 'contributions' class='btn btn--md btn--color-primary page-heading__btn'}}
+          {{link 'subscriptions' class='btn btn--md btn--color-primary page-heading__btn'}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container container--md page-content">
+
+  {{#if settings.request_list_beta}}
+    {{request_list}}
+  {{else}}
+
+    <div class="btn-group">
+      {{#each filters}}
+        {{#if selected}}
+          <span class="btn btn--primary no-hover btn--sm">{{name}}</span>
+        {{else}}
+          <a href="{{url}}" class="btn btn--light btn--sm">
+            {{name}}
+          </a>
+        {{/if}}
+      {{/each}}
+    </div>
+
+    {{#form 'requests_filter' class='request-table-toolbar'}}
+      <div class="my-activities__filter">
+        <div class="my-activities__search">
+          {{input 'query' id='quick-search' type='search' class='requests-search'}}
+        </div>
+        {{#if help_center.multiple_organizations_enabled}}
+          <div class="my-activities__select" data-plugin-autosubmit>
+            {{label 'organization' for='filter-organization'}}
+            {{select 'organization' id='filter-organization'}}
+          </div>
+        {{/if}}
+        <div class="my-activities__select" data-plugin-autosubmit>
+          {{label 'status' for='filter-status'}}
+          {{select 'status' id='filter-select'}}
+        </div>
+      </div>
+    {{/form}}
+
+    {{#if requests}}
+      <div class="table table--my-activities" id="main-content">
+        <div class="table__head">
+          <div class="table__col">{{t 'id'}}</div>
+          <div class="table__col">{{t 'subject'}}</div>
+          <div class="table__col">
+            {{#is current_filter.identifier 'my'}}
+              {{#link 'requests' sort_by='created_at'}}{{t 'created'}}{{/link}}
+            {{else}}
+              {{t 'requester'}}
+            {{/is}}
+          </div>
+          <div class="table__col">
+            {{#link 'requests' sort_by='updated_at'}}{{t 'last_activity'}}{{/link}}
+          </div>
+          <div class="table__col">{{t 'status'}}</div>
+        </div>
+        <div class="table__body">
+          {{#each requests}}
+            <div class="table__row">
+              <div class="table__col" data-title="{{t 'id'}}:">
+                <span>#{{id}}</span>
+              </div>
+              <div class="table__col" data-title="{{t 'subject'}}:">
+                <a href="{{url}}" title="{{subject}}">
+                  {{#if subject}}
+                    {{subject}}
+                  {{else}}
+                    {{excerpt description characters=50}}
+                  {{/if}}
+                </a>
+              </div>
+              <div class="table__col" data-title="{{#is ../current_filter.identifier 'my'}}{{t 'created'}}{{else}}{{t 'requester'}}{{/is}}:">
+                {{#is ../current_filter.identifier 'my'}}
+                  {{date created_at timeago=true}}
+                {{else}}
+                  {{requester.name}}
+                {{/is}}
+              </div>
+              <div class="table__col" data-title="{{t 'last_activity'}}:">
+                {{date updated_at timeago=true}}
+              </div>
+              <div class="table__col" data-title="{{t 'status'}}:">
+                            <span class="request-status request-status--{{status}}" title="{{status_description}}">
+                              {{status_name}}
+                            </span>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      {{pagination}}
+    {{else}}
+      <p>{{t 'no_requests'}}</p>
+    {{/if}}
+  {{/if}}
+
+</div>

@@ -1,0 +1,100 @@
+{{! Page heading }}
+<div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
+     data-heading-style="{{settings.page_heading_style}}"
+>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs">
+      {{breadcrumbs}}
+    </div>
+
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title">{{section.name}}</h1>
+        {{#if section.description}}
+          <p class="page-heading__description">{{section.description}}</p>
+        {{/if}}
+      </div>
+      <div class="subscribe-btn page-heading__content-right">
+        {{subscribe}}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{{pagination}}
+
+<div class="container page-content">
+
+  {{#if section.sections}}
+    <div class="row sections sections--type-{{settings.section_blocks_type}}">
+      {{#each section.sections}}
+        <div class="col">
+          <div class="sections__item">
+            <a href="{{url}}"><h3 class="categories__title">{{name}}</h3></a>
+            {{#if description}}
+              <p class="categories__description">{{excerpt description characters=80}}</p>
+            {{/if}}
+
+            <div class="row articles articles--simple">
+              {{! Article list }}
+              {{#each articles}}
+                <div class="col--md-6">
+                  <a href="{{url}}" class="articles__link {{#if promoted}}articles__link--promoted{{/if}} {{#if internal}}articles__link--internal{{/if}}">
+                    {{title}}
+                  </a>
+                </div>
+              {{/each}}
+
+              {{#if more_articles}}
+                <div class="col articles__more">
+                  <a href="{{url}}" class="btn btn--sm btn--primary">
+                    <span>{{t 'show_all_articles' count=article_count}}</span>
+                    <i class="fas fa-chevron-right is-hidden--rtl"></i>
+                    <i class="fas fa-chevron-left is-hidden--ltr"></i>
+                  </a>
+                </div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+  <div class="row articles {{#is settings.article_blocks_type '1'}}articles--boxes{{/is}}">
+    {{#each section.articles}}
+      <div class="col--lg-up-4 col--md-6">
+        <div class="articles__item">
+          <a href="{{url}}" class="h5 articles__link {{#if promoted}}articles__link--promoted{{/if}} {{#if internal}}articles__link--internal{{/if}}">{{title}}</a>
+          {{#isnt ../settings.article_blocks_type '4'}}
+            <div class="articles__body">{{excerpt body characters=75}}</div>
+
+            {{#isnt ../settings.article_blocks_type '3'}}
+              <div class="articles__meta">
+                {{#isnt ../settings.author_type 'none'}}
+                  <a href="{{author.url}}" class="articles__author">
+                    {{#is ../settings.author_type 'avatar'}}
+                      <img src="{{author.avatar_url}}" alt="{{author.name}}">
+                    {{/is}}
+                    <span>{{author.name}}</span>
+                  </a>
+                {{/isnt}}
+                {{#if ../settings.date_enable}}
+                  <span>{{date updated_at}}</span>
+                {{/if}}
+              </div>
+            {{/isnt}}
+          {{/isnt}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  {{pagination}}
+</div>

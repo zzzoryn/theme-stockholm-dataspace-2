@@ -1,0 +1,1418 @@
+{
+  "name": "Stockholm",
+  "author": "Premium Plus",
+  "version": "2022.12.2",
+  "api_version": 2,
+  "default_locale": "en-us",
+  "settings": [
+    {
+      "label": "Translations",
+      "variables": [
+        {
+          "identifier": "translations_enable",
+          "type": "checkbox",
+          "label": "Enable translations",
+          "description": "Enable a dynamic content instead of a static text",
+          "value": false
+        }
+      ]
+    },
+    {
+      "label": "Logo and favicon",
+      "variables": [
+        {
+          "identifier": "logo",
+          "type": "file",
+          "description": "Company logo",
+          "label": "Logo"
+        },
+        {
+          "identifier": "logo_height",
+          "type": "text",
+          "description": "Height of the logo",
+          "label": "Logo height",
+          "value": "33px"
+        },
+        {
+          "identifier": "favicon",
+          "type": "file",
+          "description": "Icon displayed in the address bar of your browser",
+          "label": "Favicon"
+        }
+      ]
+    },
+    {
+      "label": "Light mode colors",
+      "variables": [
+        {
+          "identifier": "primary_color",
+          "type": "color",
+          "label": "Primary color",
+          "description": "Primary color",
+          "value": "#0a4393"
+        },
+        {
+          "identifier": "secondary_color",
+          "type": "color",
+          "label": "Secondary color",
+          "description": "Secondary color",
+          "value": "#77cc09"
+        },
+        {
+          "identifier": "primary_bg_color",
+          "type": "color",
+          "label": "Primary bg color",
+          "description": "Background color of your Help Center",
+          "value": "#FFFFFF"
+        },
+        {
+          "identifier": "secondary_bg_color",
+          "type": "color",
+          "label": "Secondary bg color",
+          "description": "Background color of your sections",
+          "value": "#F5F5F5"
+        },
+        {
+          "identifier": "primary_text_color",
+          "type": "color",
+          "label": "Primary text color",
+          "description": "Text color for body",
+          "value": "#3A4A61"
+        },
+        {
+          "identifier": "secondary_text_color",
+          "type": "color",
+          "label": "Secondary text color",
+          "description": "Text color for subheading elements",
+          "value": "#585858"
+        },
+        {
+          "identifier": "link_color",
+          "type": "color",
+          "label": "Link color",
+          "description": "Text color for link elements",
+          "value": "#0a4393"
+        },
+        {
+          "identifier": "border_color",
+          "type": "color",
+          "label": "Border color",
+          "description": "Border color for elements",
+          "value": "#B1C3DC"
+        },
+        {
+          "identifier": "info_color",
+          "type": "color",
+          "label": "Brand info color",
+          "description": "Info color",
+          "value": "#0a4393"
+        },
+        {
+          "identifier": "success_color",
+          "type": "color",
+          "label": "Brand success color",
+          "description": "Success color",
+          "value": "#77cc09"
+        },
+        {
+          "identifier": "warning_color",
+          "type": "color",
+          "label": "Brand warning color",
+          "description": "Warning color",
+          "value": "#f2be49"
+        },
+        {
+          "identifier": "danger_color",
+          "type": "color",
+          "label": "Brand danger color",
+          "description": "Danger color",
+          "value": "#e64545"
+        }
+      ]
+    },
+    {
+      "label": "Dark mode colors",
+      "variables": [
+        {
+          "identifier": "dark_mode",
+          "type": "checkbox",
+          "label": "Enable dark mode",
+          "description": "Enable dark mode as default color scheme",
+          "value": false
+        },
+        {
+          "identifier": "prefers_color_scheme",
+          "type": "checkbox",
+          "label": "Prefers color scheme",
+          "description": "Enable the user's preferred color scheme from their OS settings",
+          "value": false
+        },
+        {
+          "identifier": "primary_color_dark",
+          "type": "color",
+          "label": "Primary color",
+          "description": "Primary color",
+          "value": "#1863BC"
+        },
+        {
+          "identifier": "secondary_color_dark",
+          "type": "color",
+          "label": "Secondary color",
+          "description": "Secondary color",
+          "value": "#6DBC1D"
+        },
+        {
+          "identifier": "primary_bg_color_dark",
+          "type": "color",
+          "label": "Primary bg color",
+          "description": "Background color of your Help Center",
+          "value": "#000C20"
+        },
+        {
+          "identifier": "secondary_bg_color_dark",
+          "type": "color",
+          "label": "Secondary bg color",
+          "description": "Background color of your sections",
+          "value": "#182233"
+        },
+        {
+          "identifier": "primary_text_color_dark",
+          "type": "color",
+          "label": "Primary text color",
+          "description": "Text color for body",
+          "value": "#FFFFFF"
+        },
+        {
+          "identifier": "secondary_text_color_dark",
+          "type": "color",
+          "label": "Secondary text color",
+          "description": "Text color for subheading elements",
+          "value": "#8290A8"
+        },
+        {
+          "identifier": "link_color_dark",
+          "type": "color",
+          "label": "Link color",
+          "description": "Text color for link elements",
+          "value": "#1863BC"
+        },
+        {
+          "identifier": "border_color_dark",
+          "type": "color",
+          "label": "Border color",
+          "description": "Border color for elements",
+          "value": "#242f42"
+        },
+        {
+          "identifier": "info_color_dark",
+          "type": "color",
+          "label": "Brand info color",
+          "description": "Info color",
+          "value": "#1863BC"
+        },
+        {
+          "identifier": "success_color_dark",
+          "type": "color",
+          "label": "Brand success color",
+          "description": "Success color",
+          "value": "#67C30B"
+        },
+        {
+          "identifier": "warning_color_dark",
+          "type": "color",
+          "label": "Brand warning color",
+          "description": "Warning color",
+          "value": "#F1D52F"
+        },
+        {
+          "identifier": "danger_color_dark",
+          "type": "color",
+          "label": "Brand danger color",
+          "description": "Danger color",
+          "value": "#e64545"
+        }
+      ]
+    },
+    {
+      "label": "Text",
+      "variables": [
+        {
+          "identifier": "text_font_family",
+          "type": "list",
+          "label": "Text font",
+          "description": "Font for body text",
+          "value": "Arial,Noto Sans,sans-serif",
+          "options": [
+            {
+              "label": "Default font",
+              "value": "Arial,Noto Sans,sans-serif"
+            },
+            {
+              "label": "Open Sans",
+              "value": "'Open Sans', sans-serif"
+            },
+            {
+              "label": "Roboto",
+              "value": "'Roboto', sans-serif"
+            },
+            {
+              "label": "Lato",
+              "value": "'Lato', sans-serif"
+            },
+            {
+              "label": "Rubik",
+              "value": "'Rubik', sans-serif"
+            },
+            {
+              "label": "Montserrat",
+              "value": "'Montserrat', sans-serif"
+            },
+            {
+              "label": "Nunito",
+              "value": "'Nunito', sans-serif"
+            },
+            {
+              "label": "Roboto Slab",
+              "value": "'Roboto Slab', serif"
+            },
+            {
+              "label": "Noto serif",
+              "value": "'Noto serif', serif"
+            },
+            {
+              "label": "Lora",
+              "value": "'Lora', serif"
+            }
+          ]
+        },
+        {
+          "identifier": "heading_font_family",
+          "type": "list",
+          "label": "Heading font",
+          "description": "Font for headings",
+          "value": "Arial,Noto Sans,sans-serif",
+          "options": [
+            {
+              "label": "Default font",
+              "value": "Arial,Noto Sans,sans-serif"
+            },
+            {
+              "label": "Open Sans",
+              "value": "'Open Sans', sans-serif"
+            },
+            {
+              "label": "Roboto",
+              "value": "'Roboto', sans-serif"
+            },
+            {
+              "label": "Lato",
+              "value": "'Lato', sans-serif"
+            },
+            {
+              "label": "Rubik",
+              "value": "'Rubik', sans-serif"
+            },
+            {
+              "label": "Montserrat",
+              "value": "'Montserrat', sans-serif"
+            },
+            {
+              "label": "Nunito",
+              "value": "'Nunito', sans-serif"
+            },
+            {
+              "label": "Roboto Slab",
+              "value": "'Roboto Slab', serif"
+            },
+            {
+              "label": "Noto serif",
+              "value": "'Noto serif', serif"
+            },
+            {
+              "label": "Lora",
+              "value": "'Lora', serif"
+            },
+            {
+              "label": "Playfair Display",
+              "value": "'Playfair Display', serif"
+            }
+          ]
+        },
+        {
+          "identifier": "text_font_size",
+          "type": "text",
+          "description": "Body text font size",
+          "label": "Text font size",
+          "value": "16px"
+        },
+        {
+          "identifier": "heading_1_font_size",
+          "type": "text",
+          "description": "Heading 1 font size",
+          "label": "Heading 1 font size",
+          "value": "48px"
+        },
+        {
+          "identifier": "heading_2_font_size",
+          "type": "text",
+          "description": "Heading 2 font size",
+          "label": "Heading 2 font size",
+          "value": "24px"
+        },
+        {
+          "identifier": "heading_3_font_size",
+          "type": "text",
+          "description": "Heading 3 font size",
+          "label": "Heading 3 font size",
+          "value": "20px"
+        },
+        {
+          "identifier": "heading_4_font_size",
+          "type": "text",
+          "description": "Heading 4 font size",
+          "label": "Heading 4 font size",
+          "value": "18px"
+        }
+      ]
+    },
+    {
+      "label": "Layout",
+      "variables": [
+        {
+          "identifier": "layout_in_container",
+          "type": "checkbox",
+          "label": "Container view",
+          "description": "Wrap the layout in the container",
+          "value": false
+        },
+        {
+          "identifier": "layout_style",
+          "type": "list",
+          "label": "Sections style",
+          "description": "Style of sections",
+          "value": "bordered",
+          "options": [
+            {
+              "label": "Bordered",
+              "value": "bordered"
+            },
+            {
+              "label": "Filled",
+              "value": "filled"
+            },
+            {
+              "label": "Invert",
+              "value": "invert"
+            }
+          ]
+        },
+        {
+          "identifier": "border_radius_base",
+          "type": "text",
+          "description": "Border radius for boxes",
+          "label": "Border radius",
+          "value": "8px"
+        },
+        {
+          "identifier": "border_radius_button",
+          "type": "text",
+          "description": "Border radius for buttons",
+          "label": "Button border radius",
+          "value": "50px"
+        }
+      ]
+    },
+    {
+      "label": "Header",
+      "variables": [
+        {
+          "identifier": "header_type",
+          "type": "list",
+          "label": "Header type",
+          "description": "Layout type of the header element",
+          "value": "2",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "identifier": "header_style",
+          "type": "list",
+          "label": "Header style",
+          "description": "Style of the header element",
+          "value": "1",
+          "options": [
+            {
+              "label": "Style 1",
+              "value": "1"
+            },
+            {
+              "label": "Style 2",
+              "value": "2"
+            },
+            {
+              "label": "Style 3",
+              "value": "3"
+            },
+            {
+              "label": "Style 4",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "identifier": "header_is_fixed",
+          "type": "checkbox",
+          "label": "Header is fixed",
+          "description": "Fix header on page scrolling",
+          "value": true
+        },
+        {
+          "identifier": "header_link_type",
+          "type": "list",
+          "label": "Header link type",
+          "description": "Layout type of the header element",
+          "value": "none",
+          "options": [
+            {
+              "label": "Without header link",
+              "value": "none"
+            },
+            {
+              "label": "Category list",
+              "value": "categories"
+            },
+            {
+              "label": "Custom link",
+              "value": "custom"
+            }
+          ]
+        },
+        {
+          "identifier": "header_link_text",
+          "type": "text",
+          "label": "Header link text",
+          "description": "Text for the custom link",
+          "value": "-"
+        },
+        {
+          "identifier": "header_link_url",
+          "type": "text",
+          "label": "Header link URL",
+          "description": "URL for the custom link",
+          "value": "#"
+        },
+        {
+          "identifier": "signin_enable",
+          "type": "checkbox",
+          "label": "Enable sign in",
+          "description": "Enable the sign in button",
+          "value": true
+        }
+      ]
+    },
+    {
+      "label": "Welcome",
+      "variables": [
+        {
+          "identifier": "welcome_type",
+          "type": "list",
+          "label": "Welcome type",
+          "description": "Layout type of the welcome component",
+          "value": "3",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            },
+            {
+              "label": "Type 3",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "identifier": "welcome_style",
+          "type": "list",
+          "label": "Welcome style",
+          "description": "Style of the welcome component",
+          "value": "2",
+          "options": [
+            {
+              "label": "Style 1",
+              "value": "1"
+            },
+            {
+              "label": "Style 2",
+              "value": "2"
+            },
+            {
+              "label": "Style 3",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "identifier": "welcome_size",
+          "type": "list",
+          "label": "Welcome size",
+          "description": "Welcome box size",
+          "value": "medium",
+          "options": [
+            {
+              "label": "Small",
+              "value": "small"
+            },
+            {
+              "label": "Medium",
+              "value": "medium"
+            },
+            {
+              "label": "Large",
+              "value": "large"
+            }
+          ]
+        },
+        {
+          "identifier": "welcome_bg",
+          "type": "file",
+          "label": "Background image",
+          "description": "Welcome background image"
+        },
+        {
+          "identifier": "welcome_bg_dark",
+          "type": "file",
+          "label": "Dark background image",
+          "description": "Welcome background image for the dark mode"
+        },
+        {
+          "identifier": "welcome_image",
+          "type": "file",
+          "label": "Welcome image",
+          "description": "Welcome secondary image"
+        },
+        {
+          "identifier": "welcome_image_dark",
+          "type": "file",
+          "label": "Dark welcome image",
+          "description": "Welcome secondary image for the dark background"
+        },
+        {
+          "identifier": "welcome_mask_enable",
+          "type": "checkbox",
+          "label": "Enable welcome mask",
+          "description": "Enable the banner mask",
+          "value": true
+        },
+        {
+          "identifier": "welcome_title",
+          "type": "text",
+          "label": "Welcome title",
+          "description": "Text above the search field",
+          "value": "Welcome to Copernicus Data Space Ecosystem"
+        },
+        {
+          "identifier": "welcome_description",
+          "type": "text",
+          "label": "Welcome description",
+          "description": "Text above the search field",
+          "value": "Welcome to the Copernicus Data Space Ecosystem, an open ecosystem that provides free instant access to a wide range of data and services from the Copernicus Sentinel missions and more on our planet’s land, oceans and atmosphere"
+        },
+        {
+          "identifier": "search_placeholder",
+          "type": "text",
+          "label": "Search placeholder",
+          "description": "Text for the search field",
+          "value": "Type your question here..."
+        }
+      ]
+    },
+    {
+      "label": "Helpers",
+      "variables": [
+        {
+          "identifier": "helpers_enable",
+          "type": "checkbox",
+          "label": "Enable helpers",
+          "description": "Enable the helpers component",
+          "value": true
+        },
+        {
+          "identifier": "helpers_type",
+          "type": "list",
+          "label": "Helpers type",
+          "description": "Layout type of the helpers component",
+          "value": "3",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            },
+            {
+              "label": "Type 3",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "identifier": "helpers_style",
+          "type": "list",
+          "label": "Helpers style",
+          "description": "Style of the helpers component",
+          "value": "1",
+          "options": [
+            {
+              "label": "Style 1",
+              "value": "1"
+            },
+            {
+              "label": "Style 2",
+              "value": "2"
+            },
+            {
+              "label": "Style 3",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Helper 1",
+      "variables": [
+        {
+          "identifier": "helper_1_enable",
+          "type": "checkbox",
+          "label": "Enable helper 1",
+          "description": "Enable helper 1",
+          "value": true
+        },
+        {
+          "identifier": "helper_1_icon",
+          "type": "file",
+          "label": "Helper 1 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_1_icon_2",
+          "type": "file",
+          "label": "Helper secondary 1 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_1_title",
+          "type": "text",
+          "label": "Helper 1 title",
+          "description": "Helper 1 title",
+          "value": "-"
+        },
+        {
+          "identifier": "helper_1_description",
+          "type": "text",
+          "label": "Helper 1 description",
+          "description": "Helper 1 description",
+          "value": "Lorem ipsum dolor sit amet consectetur. Nibh sed gravida massa massa sit enim tincidunt dictum. Tellus luctus sit nam mi velit turpis commodo amet. Eleifend vulputate cursus phasellus mattis consequat habitant magna velit molestie. Ut ut massa ullamcorper rutrum."
+        },
+        {
+          "identifier": "helper_1_url",
+          "type": "text",
+          "label": "Helper 1 url",
+          "description": "Helper 1 url",
+          "value": "#"
+        }
+      ]
+    },
+    {
+      "label": "Helper 2",
+      "variables": [
+        {
+          "identifier": "helper_2_enable",
+          "type": "checkbox",
+          "label": "Enable helper 2",
+          "description": "Enable helper 2",
+          "value": true
+        },
+        {
+          "identifier": "helper_2_icon",
+          "type": "file",
+          "label": "Helper 2 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_2_icon_2",
+          "type": "file",
+          "label": "Helper secondary 2 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_2_title",
+          "type": "text",
+          "label": "Helper 2 title",
+          "description": "Helper 2 title",
+          "value": "-"
+        },
+        {
+          "identifier": "helper_2_description",
+          "type": "text",
+          "label": "Helper 2 description",
+          "description": "Helper 2 description",
+          "value": "Lorem ipsum dolor sit amet consectetur. Nibh sed gravida massa massa sit enim tincidunt dictum. Tellus luctus sit nam mi velit turpis commodo amet. Eleifend vulputate cursus phasellus mattis consequat habitant magna velit molestie. Ut ut massa ullamcorper rutrum."
+        },
+        {
+          "identifier": "helper_2_url",
+          "type": "text",
+          "label": "Helper 2 url",
+          "description": "Helper 2 url",
+          "value": "#"
+        }
+      ]
+    },
+    {
+      "label": "Helper 3",
+      "variables": [
+        {
+          "identifier": "helper_3_enable",
+          "type": "checkbox",
+          "label": "Enable helper 3",
+          "description": "Enable helper 3",
+          "value": true
+        },
+        {
+          "identifier": "helper_3_icon",
+          "type": "file",
+          "label": "Helper 3 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_3_icon_2",
+          "type": "file",
+          "label": "Helper secondary 3 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_3_title",
+          "type": "text",
+          "label": "Helper 3 title",
+          "description": "Helper 3 title",
+          "value": "-"
+        },
+        {
+          "identifier": "helper_3_description",
+          "type": "text",
+          "label": "Helper 3 description",
+          "description": "Helper 3 description",
+          "value": "Lorem ipsum dolor sit amet consectetur. Nibh sed gravida massa massa sit enim tincidunt dictum. Tellus luctus sit nam mi velit turpis commodo amet. Eleifend vulputate cursus phasellus mattis consequat habitant magna velit molestie. Ut ut massa ullamcorper rutrum."
+        },
+        {
+          "identifier": "helper_3_url",
+          "type": "text",
+          "label": "Helper 3 url",
+          "description": "Helper 3 url",
+          "value": "/hc/requests/new"
+        }
+      ]
+    },
+    {
+      "label": "Category blocks",
+      "variables": [
+        {
+          "identifier": "category_blocks_enable",
+          "type": "checkbox",
+          "label": "Enable category blocks",
+          "description": "Enable the category blocks component",
+          "value": true
+        },
+        {
+          "identifier": "category_blocks_type",
+          "type": "list",
+          "label": "Category blocks type",
+          "description": "Layout type of the category blocks component",
+          "value": "1",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Knowledge base",
+      "variables": [
+        {
+          "identifier": "knowledge_enable",
+          "type": "checkbox",
+          "label": "Enable knowledge base",
+          "description": "Enable the knowledge base component",
+          "value": false
+        },
+        {
+          "identifier": "knowledge_type",
+          "type": "list",
+          "label": "Knowledge base type",
+          "description": "Layout type of the knowledge base component",
+          "value": "1",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            },
+            {
+              "label": "Type 3",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Promoted articles",
+      "variables": [
+        {
+          "identifier": "promoted_enable",
+          "type": "checkbox",
+          "label": "Enable promoted articles",
+          "description": "Enable the promoted articles component",
+          "value": true
+        },
+        {
+          "identifier": "promoted_type",
+          "type": "list",
+          "label": "Promoted articles type",
+          "description": "Layout type of the promoted articles component",
+          "value": "3",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            },
+            {
+              "label": "Type 3",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Recent activity",
+      "variables": [
+        {
+          "identifier": "activity_enable",
+          "type": "checkbox",
+          "label": "Enable recent activity",
+          "description": "Enable the recent activity component",
+          "value": false
+        },
+        {
+          "identifier": "activity_type",
+          "type": "list",
+          "label": "Recent activity type",
+          "description": "Layout type of the recent activity component",
+          "value": "2",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "CTA",
+      "variables": [
+        {
+          "identifier": "cta_enable",
+          "type": "checkbox",
+          "label": "Enable CTA",
+          "description": "Enable the CTA component",
+          "value": true
+        },
+        {
+          "identifier": "cta_type",
+          "type": "list",
+          "label": "CTA type",
+          "description": "Layout type of the CTA component",
+          "value": "2",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "identifier": "cta_style",
+          "type": "list",
+          "label": "CTA style",
+          "description": "Style of the CTA component",
+          "value": "4",
+          "options": [
+            {
+              "label": "Style 1",
+              "value": "1"
+            },
+            {
+              "label": "Style 2",
+              "value": "2"
+            },
+            {
+              "label": "Style 3",
+              "value": "3"
+            },
+            {
+              "label": "Style 4",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "identifier": "cta_bg",
+          "type": "file",
+          "label": "CTA background image",
+          "description": "CTA background image"
+        },
+        {
+          "identifier": "cta_bg_dark",
+          "type": "file",
+          "label": "Dark CTA background image",
+          "description": "CTA background image for the dark mode"
+        },
+        {
+          "identifier": "cta_image",
+          "type": "file",
+          "label": "CTA image",
+          "description": "CTA secondary image"
+        },
+        {
+          "identifier": "cta_image_dark",
+          "type": "file",
+          "label": "Dark CTA image",
+          "description": "CTA secondary image for the dark background"
+        },
+        {
+          "identifier": "cta_mask_enable",
+          "type": "checkbox",
+          "label": "Enable CTA mask",
+          "description": "Enable the banner mask",
+          "value": true
+        },
+        {
+          "identifier": "cta_title",
+          "type": "text",
+          "label": "CTA title",
+          "description": "CTA title",
+          "value": "-"
+        },
+        {
+          "identifier": "cta_subtitle",
+          "type": "text",
+          "label": "CTA subtitle",
+          "description": "CTA subtitle",
+          "value": "-"
+        }
+      ]
+    },
+    {
+      "label": "Footer",
+      "variables": [
+        {
+          "identifier": "footer_style",
+          "type": "list",
+          "label": "Footer style",
+          "description": "Style of the footer component",
+          "value": "1",
+          "options": [
+            {
+              "label": "Style 1",
+              "value": "1"
+            },
+            {
+              "label": "Style 2",
+              "value": "2"
+            },
+            {
+              "label": "Style 3",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "identifier": "footer_copyright",
+          "type": "text",
+          "label": "Copyright",
+          "description": "Footer copyright",
+          "value": "Copernicus Data Space"
+        },
+        {
+          "identifier": "footer_facebook_enable",
+          "type": "checkbox",
+          "label": "Enable Facebook icon",
+          "description": "Show or hide the Facebook icon",
+          "value": true
+        },
+        {
+          "identifier": "footer_facebook_url",
+          "type": "text",
+          "label": "Facebook URL",
+          "description": "URL to the Facebook account",
+          "value": "https://facebook.com"
+        },
+        {
+          "identifier": "footer_twitter_enable",
+          "type": "checkbox",
+          "label": "Enable Twitter icon",
+          "description": "Show or hide the Twitter icon",
+          "value": true
+        },
+        {
+          "identifier": "footer_twitter_url",
+          "type": "text",
+          "label": "Twitter URL",
+          "description": "URL to the Twitter account",
+          "value": "https://twitter.com/CopernicusEU"
+        },
+        {
+          "identifier": "footer_youtube_enable",
+          "type": "checkbox",
+          "label": "Enable Youtube icon",
+          "description": "Show or hide the Youtube icon",
+          "value": true
+        },
+        {
+          "identifier": "footer_youtube_url",
+          "type": "text",
+          "label": "Youtube URL",
+          "description": "URL to the Youtube account",
+          "value": "https://www.youtube.com/channel/UCpuwnbuwGG20enAdE50g6TA"
+        },
+        {
+          "identifier": "footer_linkedin_enable",
+          "type": "checkbox",
+          "label": "Enable LinkedIn icon",
+          "description": "Show or hide the LinkedIn icon",
+          "value": false
+        },
+        {
+          "identifier": "footer_linkedin_url",
+          "type": "text",
+          "label": "LinkedIn URL",
+          "description": "URL to the LinkedIn account",
+          "value": "https://linkedin.com"
+        },
+        {
+          "identifier": "footer_instagram_enable",
+          "type": "checkbox",
+          "label": "Enable Instagram icon",
+          "description": "Show or hide the Instagram icon",
+          "value": true
+        },
+        {
+          "identifier": "footer_instagram_url",
+          "type": "text",
+          "label": "Instagram URL",
+          "description": "URL to the Instagram account",
+          "value": "https://www.instagram.com/copernicus_eu/"
+        }
+      ]
+    },
+    {
+      "label": "Inner pages",
+      "variables": [
+        {
+          "identifier": "page_heading_type",
+          "type": "list",
+          "label": "Page heading type",
+          "description": "Type of the inner page heading",
+          "value": "1",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "identifier": "page_heading_style",
+          "type": "list",
+          "label": "Page heading style",
+          "description": "Style of the inner page heading",
+          "value": "2",
+          "options": [
+            {
+              "label": "Style 1",
+              "value": "1"
+            },
+            {
+              "label": "Style 2",
+              "value": "2"
+            },
+            {
+              "label": "Style 3",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "identifier": "error_image",
+          "type": "file",
+          "label": "Error image",
+          "description": "Image on the error page"
+        },
+        {
+          "identifier": "section_blocks_type",
+          "type": "list",
+          "label": "Section blocks type",
+          "description": "Type of section blocks in the category page",
+          "value": "3",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            },
+            {
+              "label": "Type 3",
+              "value": "3"
+            },
+            {
+              "label": "Type 4",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "identifier": "article_blocks_type",
+          "type": "list",
+          "label": "Article blocks type",
+          "description": "Type of article blocks in the section page",
+          "value": "1",
+          "options": [
+            {
+              "label": "Type 1",
+              "value": "1"
+            },
+            {
+              "label": "Type 2",
+              "value": "2"
+            },
+            {
+              "label": "Type 3",
+              "value": "3"
+            },
+            {
+              "label": "Type 4",
+              "value": "4"
+            }
+          ]
+        },
+        {
+          "identifier": "author_type",
+          "type": "list",
+          "label": "Enable author",
+          "description": "Enable author for content",
+          "value": "none",
+          "options": [
+            {
+              "label": "None",
+              "value": "none"
+            },
+            {
+              "label": "Author name only",
+              "value": "name"
+            },
+            {
+              "label": "Author name + avatar",
+              "value": "avatar"
+            }
+          ]
+        },
+        {
+          "identifier": "date_enable",
+          "type": "checkbox",
+          "label": "Enable dates",
+          "description": "Enable created at & edited at dates",
+          "value": true
+        }
+      ]
+    },
+    {
+      "label": "Article page",
+      "variables": [
+        {
+          "identifier": "article_content_size",
+          "type": "list",
+          "label": "Content box size",
+          "description": "Article content box size",
+          "value": "medium",
+          "options": [
+            {
+              "label": "Small",
+              "value": "small"
+            },
+            {
+              "label": "Medium",
+              "value": "medium"
+            },
+            {
+              "label": "Large",
+              "value": "large"
+            }
+          ]
+        },
+        {
+          "identifier": "share_enable",
+          "type": "checkbox",
+          "label": "Enable share",
+          "description": "Enable the sharing content on social media",
+          "value": true
+        },
+        {
+          "identifier": "vote_enable",
+          "type": "checkbox",
+          "label": "Enable vote",
+          "description": "Enable the vote component",
+          "value": true
+        },
+        {
+          "identifier": "vote_style",
+          "type": "list",
+          "label": "Vote style",
+          "description": "Style of the vote component",
+          "value": "2",
+          "options": [
+            {
+              "label": "Style 1",
+              "value": "1"
+            },
+            {
+              "label": "Style 2",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "identifier": "article_lists",
+          "type": "list",
+          "label": "Article lists",
+          "description": "Type of article lists",
+          "value": "recent_section",
+          "options": [
+            {
+              "label": "Hide article lists block",
+              "value": "none"
+            },
+            {
+              "label": "Recent & Related",
+              "value": "recent_related"
+            },
+            {
+              "label": "Recent & Articles in this section",
+              "value": "recent_section"
+            },
+            {
+              "label": "Related & Articles in this section",
+              "value": "related_section"
+            }
+          ]
+        },
+        {
+          "identifier": "comments_enable",
+          "type": "checkbox",
+          "label": "Enable comments",
+          "description": "Show comments on articles",
+          "value": true
+        }
+      ]
+    },
+    {
+      "label": "Requests list",
+      "variables": [
+        {
+          "identifier": "request_list_beta",
+          "type": "checkbox",
+          "description": "Users can sort and filter requests, add and remove columns",
+          "label": "New request list experience",
+          "value": false
+        },
+        {
+          "identifier": "brand_color",
+          "type": "color",
+          "description": "Brand color for the requests list",
+          "label": "Brand color",
+          "value": "#17494D"
+        }
+      ]
+    },
+    {
+      "label": "Inject",
+      "variables": [
+        {
+          "identifier": "inject_head",
+          "type": "text",
+          "description": "Inject script in the <head>",
+          "label": "<head> inject",
+          "value": ""
+        },
+        {
+          "identifier": "inject_body",
+          "type": "text",
+          "description": "Inject script at the beginning of <body>",
+          "label": "<body> inject",
+          "value": ""
+        },
+        {
+          "identifier": "inject_footer",
+          "type": "text",
+          "description": "Inject script at the end of <footer>",
+          "label": "<footer> inject",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

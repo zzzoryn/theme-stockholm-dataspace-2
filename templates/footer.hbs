@@ -1,0 +1,135 @@
+{{! Footer }}
+<div class="animated-line animated-line--min"></div>
+<footer class="custom-footer">
+  <div class="container">
+    <div class="custom-footer__top">
+      <div class="custom-footer__logo">
+        <a href="/hc/{{help_center.locale}}" class="custom-header__logo">
+          <img src="{{settings.logo}}" alt="{{help_center.name}}">
+        </a>
+      </div>
+      <div class="row">
+        <div class="col col--md-up-2" data-plugin-spoiler>
+          <div class="custom-footer__heading js-spoiler-toggle">Explore data</div>
+          <ul class="custom-footer__menu js-spoiler">
+            <li><a href="#">Free offering</a></li>
+            <li><a href="#">Copernicus Contributing Missions</a></li>
+            <li><a href="#">Federated data access</a></li>
+          </ul>
+        </div>
+        <div class="col col--md-up-2" data-plugin-spoiler>
+          <div class="custom-footer__heading js-spoiler-toggle">Tools</div>
+          <ul class="custom-footer__menu js-spoiler">
+            <li><a href="#">Browser</a></li>
+            <li><a href="#">Market place</a></li>
+            <li><a href="#">Jupyter Hub</a></li>
+            <li><a href="#">Data workspace</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Traceability</a></li>
+          </ul>
+        </div>
+        <div class="col col--md-up-2" data-plugin-spoiler>
+          <div class="custom-footer__heading js-spoiler-toggle">API’s</div>
+          <ul class="custom-footer__menu js-spoiler">
+            <li><a href="#">Catalogue</a></li>
+            <li><a href="#">OpenEO</a></li>
+            <li><a href="#">Sentinel Hub</a></li>
+            <li><a href="#">Traceability</a></li>
+            <li><a href="#">On demand</a></li>
+          </ul>
+        </div>
+        <div class="col col--md-up-2" data-plugin-spoiler>
+          <div class="custom-footer__heading js-spoiler-toggle">Ecosystem Services</div>
+          <ul class="custom-footer__menu js-spoiler">
+            <li><a href="#">Compute & Virtual machines</a></li>
+            <li><a href="#">Storage</a></li>
+            <li><a href="#">Managed Kubernetes</a></li>
+          </ul>
+        </div>
+        <div class="col col--md-up-1" data-plugin-spoiler>
+          <div class="custom-footer__heading js-spoiler-toggle">More</div>
+          <ul class="custom-footer__menu js-spoiler">
+            <li><a href="#">Login</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+        <div class="col col--md-up-3">
+          <div class="custom-footer__right-heading">Do you have questions?</div>
+          <div class="custom-footer__right-text">
+            Contact us via the <a href="/hc/{{help_center.locale}}/requests/new">about page</a>
+          </div>
+          <div class="custom-footer__soc">
+            {{#if settings.footer_youtube_enable}}
+              <a id="footer-youtube" class="btn btn--circle btn--secondary" href="{{settings.footer_youtube_url}}" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+            {{/if}}
+            {{#if settings.footer_twitter_enable}}
+              <a id="footer-twitter" class="btn btn--circle btn--secondary" href="{{settings.footer_twitter_url}}" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            {{/if}}
+            {{#if settings.footer_linkedin_enable}}
+              <a id="footer-linkedin" class="btn btn--circle btn--secondary" href="{{settings.footer_linkedin_url}}" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            {{/if}}
+            {{#if settings.footer_facebook_enable}}
+              <a id="footer-facebook" class="btn btn--circle btn--secondary" href="{{settings.footer_facebook_url}}" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            {{/if}}
+            {{#if settings.footer_instagram_enable}}
+              <a id="footer-instagram" class="btn btn--circle btn--secondary" href="{{settings.footer_instagram_url}}" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="custom-footer__bottom">
+      <a href="#">Terms and conditions</a>
+      <a href="#">Privacy policy</a>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+  $(window).trigger('page:loaded');
+
+  var observer = new MutationObserver(function(mutationsList, observer) {
+    mutationsList.forEach(function(mutation) {
+      if (mutation.type === 'childList') {
+        if (window.HelpCenter) {
+          try {
+            window.theme.settings = Object.assign({}, HelpCenter.internal.theming_settings);
+          }
+          catch (error) {
+            window.theme.settings = {
+              isError: true
+            };
+          }
+          observer.disconnect();
+        }
+      }
+    });
+  });
+
+  observer.observe(document.body, {
+    attributes: false,
+    childList: true,
+    subtree: false
+  });
+</script>
+
+{{#if settings.inject_footer}}
+  <script>
+    document.write(({{json_stringify settings.inject_footer}}).replace(/(&lt;)/g, '<').replace(/(&gt;)/g, '>'));
+  </script>
+{{/if}}

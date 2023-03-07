@@ -1,0 +1,64 @@
+{{! Page heading }}
+<div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
+     data-heading-style="{{settings.page_heading_style}}"
+>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs">
+      {{breadcrumbs}}
+    </div>
+
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title">{{t 'my_activities' }}</h1>
+        <div class="page-heading__nav">
+          {{#if help_center.request_management_enabled}}
+            {{link 'requests' class='btn btn--md btn--color-primary page-heading__btn'}}
+          {{/if}}
+          {{link 'contributions' class='btn btn--md btn--color-primary page-heading__btn'}}
+          <span class="btn btn--md btn--secondary is-active no-hover">{{t 'following'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container container--md page-content">
+
+  {{#if subscriptions}}
+    <div class="table table--my-activities" id="main-content">
+      <div class="table__head">
+        <div class="table__col">{{t 'title'}}</div>
+        <div class="table__col">{{t 'type'}}</div>
+        <div class="table__col">{{t 'subscription'}}</div>
+        <div class="table__col">&nbsp;</div>
+      </div>
+      <div class="table__body">
+        {{#each subscriptions}}
+          <div class="table__row">
+            <div class="table__col" data-title="{{t 'title'}}:">
+              <a href="{{url}}">{{excerpt title characters=60}}</a>
+            </div>
+            <div class="table__col" data-title="{{t 'type'}}:">
+              <span>{{name}}</span>
+            </div>
+            <div class="table__col" data-title="{{t 'subscription'}}:">
+              <span>{{following}}</span>
+            </div>
+            <div class="table__col" data-title="">
+              <span class="subscribe-min-btn">{{subscribe}}</span>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    {{pagination}}
+  {{else}}
+    <p>{{t 'not_following'}}</p>
+  {{/if}}
+
+</div>

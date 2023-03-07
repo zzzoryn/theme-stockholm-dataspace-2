@@ -1,0 +1,122 @@
+{{! Page heading }}
+<div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
+     data-heading-style="{{settings.page_heading_style}}"
+>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs">
+      {{breadcrumbs}}
+    </div>
+
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title">{{t 'search'}}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container page-content">
+  <div class="search-filter">
+    {{#if source_filters}}
+      <div class="dropdown" data-plugin-dropdown='{"position":"bottom-start"}'>
+        <div class="search-filter__item js-dropdown-open">{{t 'filter_source'}}</div>
+        <div class="dropdown__content dropdown__content--xs js-dropdown" role="menu" aria-hidden="true">
+          {{#each source_filters}}
+            <a href="{{url}}" class="{{#if selected}}is-active{{/if}} dropdown__menuitem">{{name}} ({{count}})</a>
+          {{/each}}
+        </div>
+      </div>
+    {{/if}}
+    {{#if type_filters}}
+      <div class="dropdown" data-plugin-dropdown='{"position":"bottom-start"}'>
+        <div class="search-filter__item js-dropdown-open">{{t 'filter_type'}}</div>
+        <div class="dropdown__content dropdown__content--xs js-dropdown" role="menu" aria-hidden="true">
+          {{#each type_filters}}
+            <a href="{{url}}" class="{{#if selected}}is-active{{/if}} dropdown__menuitem">{{name}} ({{count}})</a>
+          {{/each}}
+        </div>
+      </div>
+    {{/if}}
+    {{#if subfilters}}
+      <div class="dropdown" data-plugin-dropdown='{"position":"bottom-start"}'>
+        <div class="search-filter__item js-dropdown-open">
+          {{#is current_filter.identifier 'knowledge_base'}}
+            {{t 'filter_by_category'}}
+          {{/is}}
+          {{#is current_filter.identifier 'community'}}
+            {{t 'filter_by_topic'}}
+          {{/is}}
+        </div>
+        <div class="dropdown__content dropdown__content--xs js-dropdown" role="menu" aria-hidden="true">
+          {{#each subfilters}}
+            <a href="{{url}}" class="{{#if selected}}is-active{{/if}} dropdown__menuitem">{{name}} ({{count}})</a>
+          {{/each}}
+        </div>
+      </div>
+    {{/if}}
+    {{search instant=true submit=false}}
+  </div>
+
+  <h1 class="h2">
+    {{#if results}}
+      {{#is current_filter.identifier 'unified'}}
+        {{#if content_tag_filters }}
+          {{#each (filter content_tag_filters on="selected" equals=true)}}
+            {{t 'results_content_tag' content_tag=name count=../results_count}}
+          {{/each}}
+        {{else}}
+          {{t 'results' query=query count=results_count}}
+        {{/if}}
+      {{else}}
+        {{#if content_tag_filters }}
+          {{#each (filter content_tag_filters on="selected" equals=true)}}
+            {{t 'results_content_tag' content_tag=name count=../results_count}}
+          {{/each}}
+        {{else}}
+          {{#unless current_subfilter.identifier}}
+            {{t 'results' query=query count=results_count}}
+          {{else}}
+            {{t 'results_with_scope' query=query count=results_count scope_name=current_subfilter.name}}
+          {{/unless}}
+        {{/if}}
+      {{/is}}
+    {{else}}
+      {{t 'results' query=query count=results_count}}
+    {{/if}}
+  </h1>
+
+  {{#if results}}
+    <div class="row articles articles--boxes">
+      {{#each results}}
+        <div class="col--lg-up-4 col--md-6">
+          <div class="articles__item">
+            <a href="{{url}}" class="h5 articles__link">{{title}}</a>
+            <div class="articles__body">{{text}}</div>
+            <div class="articles__meta">
+              {{#isnt ../settings.author_type 'none'}}
+                <a href="{{author.url}}" class="articles__author">
+                  {{#is ../settings.author_type 'avatar'}}
+                    <img src="{{author.avatar_url}}" alt="{{author.name}}">
+                  {{/is}}
+                  <span>{{author.name}}</span>
+                </a>
+              {{/isnt}}
+              {{#if ../settings.date_enable}}
+                <span>{{date created_at}}</span>
+              {{/if}}
+              <span>{{t 'comments_count' count=comment_count}}</span>
+              {{#if vote_sum}}
+                <span><i class="fas fa-thumbs-up"></i> {{vote_sum}}</span>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>
