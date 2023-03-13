@@ -1,7 +1,7 @@
 {
   "name": "Stockholm",
   "author": "Premium Plus",
-  "version": "2022.12.2",
+  "version": "2.0.0",
   "api_version": 2,
   "default_locale": "en-us",
   "settings": [
@@ -620,14 +620,14 @@
           "type": "text",
           "label": "Welcome title",
           "description": "Text above the search field",
-          "value": "Welcome to Copernicus Data Space Ecosystem"
+          "value": "How can we help you?"
         },
         {
           "identifier": "welcome_description",
           "type": "text",
           "label": "Welcome description",
           "description": "Text above the search field",
-          "value": "Welcome to the Copernicus Data Space Ecosystem, an open ecosystem that provides free instant access to a wide range of data and services from the Copernicus Sentinel missions and more on our planet’s land, oceans and atmosphere"
+          "value": "Use the search bar or scroll down our page for more support options."
         },
         {
           "identifier": "search_placeholder",
@@ -653,7 +653,7 @@
           "type": "list",
           "label": "Helpers type",
           "description": "Layout type of the helpers component",
-          "value": "3",
+          "value": "2",
           "options": [
             {
               "label": "Type 1",
@@ -674,7 +674,7 @@
           "type": "list",
           "label": "Helpers style",
           "description": "Style of the helpers component",
-          "value": "1",
+          "value": "2",
           "options": [
             {
               "label": "Style 1",
@@ -719,21 +719,21 @@
           "type": "text",
           "label": "Helper 1 title",
           "description": "Helper 1 title",
-          "value": "-"
+          "value": "Data Offering"
         },
         {
           "identifier": "helper_1_description",
           "type": "text",
           "label": "Helper 1 description",
           "description": "Helper 1 description",
-          "value": "Lorem ipsum dolor sit amet consectetur. Nibh sed gravida massa massa sit enim tincidunt dictum. Tellus luctus sit nam mi velit turpis commodo amet. Eleifend vulputate cursus phasellus mattis consequat habitant magna velit molestie. Ut ut massa ullamcorper rutrum."
+          "value": "Questions? Find the answer to any question."
         },
         {
           "identifier": "helper_1_url",
           "type": "text",
           "label": "Helper 1 url",
           "description": "Helper 1 url",
-          "value": "#"
+          "value": "/hc/categories/9477103686685"
         }
       ]
     },
@@ -764,21 +764,21 @@
           "type": "text",
           "label": "Helper 2 title",
           "description": "Helper 2 title",
-          "value": "-"
+          "value": "Tools"
         },
         {
           "identifier": "helper_2_description",
           "type": "text",
           "label": "Helper 2 description",
           "description": "Helper 2 description",
-          "value": "Lorem ipsum dolor sit amet consectetur. Nibh sed gravida massa massa sit enim tincidunt dictum. Tellus luctus sit nam mi velit turpis commodo amet. Eleifend vulputate cursus phasellus mattis consequat habitant magna velit molestie. Ut ut massa ullamcorper rutrum."
+          "value": "Need help? We have you covered."
         },
         {
           "identifier": "helper_2_url",
           "type": "text",
           "label": "Helper 2 url",
           "description": "Helper 2 url",
-          "value": "#"
+          "value": "/hc/categories/9477104683677"
         }
       ]
     },
@@ -809,20 +809,110 @@
           "type": "text",
           "label": "Helper 3 title",
           "description": "Helper 3 title",
-          "value": "-"
+          "value": "API's"
         },
         {
           "identifier": "helper_3_description",
           "type": "text",
           "label": "Helper 3 description",
           "description": "Helper 3 description",
-          "value": "Lorem ipsum dolor sit amet consectetur. Nibh sed gravida massa massa sit enim tincidunt dictum. Tellus luctus sit nam mi velit turpis commodo amet. Eleifend vulputate cursus phasellus mattis consequat habitant magna velit molestie. Ut ut massa ullamcorper rutrum."
+          "value": "Questions? Find the answer to any question."
         },
         {
           "identifier": "helper_3_url",
           "type": "text",
           "label": "Helper 3 url",
           "description": "Helper 3 url",
+          "value": "/hc/categories/9477140705565"
+        }
+      ]
+    },
+    {
+      "label": "Helper 4",
+      "variables": [
+        {
+          "identifier": "helper_4_enable",
+          "type": "checkbox",
+          "label": "Enable helper 4",
+          "description": "Enable helper 4",
+          "value": true
+        },
+        {
+          "identifier": "helper_4_icon",
+          "type": "file",
+          "label": "Helper 4 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_4_icon_2",
+          "type": "file",
+          "label": "Helper secondary 4 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_4_title",
+          "type": "text",
+          "label": "Helper 4 title",
+          "description": "Helper 4 title",
+          "value": "Ecosystem Services"
+        },
+        {
+          "identifier": "helper_4_description",
+          "type": "text",
+          "label": "Helper 4 description",
+          "description": "Helper 4 description",
+          "value": "Need help? We have you covered."
+        },
+        {
+          "identifier": "helper_4_url",
+          "type": "text",
+          "label": "Helper 4 url",
+          "description": "Helper 4 url",
+          "value": "/categories/9477156647069"
+        }
+      ]
+    },
+    {
+      "label": "Helper 5",
+      "variables": [
+        {
+          "identifier": "helper_5_enable",
+          "type": "checkbox",
+          "label": "Enable helper 5",
+          "description": "Enable helper 5",
+          "value": true
+        },
+        {
+          "identifier": "helper_5_icon",
+          "type": "file",
+          "label": "Helper 5 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_5_icon_2",
+          "type": "file",
+          "label": "Helper secondary 5 icon",
+          "description": "We recommend uploading the icon in the SVG format"
+        },
+        {
+          "identifier": "helper_5_title",
+          "type": "text",
+          "label": "Helper 5 title",
+          "description": "Helper 5 title",
+          "value": "Submit a request"
+        },
+        {
+          "identifier": "helper_5_description",
+          "type": "text",
+          "label": "Helper 5 description",
+          "description": "Helper 5 description",
+          "value": "Contact us through a specially prepared form."
+        },
+        {
+          "identifier": "helper_5_url",
+          "type": "text",
+          "label": "Helper 5 url",
+          "description": "Helper 5 url",
           "value": "/hc/requests/new"
         }
       ]

@@ -49,132 +49,148 @@
 {{#if settings.helpers_enable}}
   <section id="helpers" class="section helpers helpers--type-{{settings.helpers_type}} helpers--style-{{settings.helpers_style}}">
     <div class="container">
-      <div class="row row--center">
+      <div class="row helpers__row">
 
         {{#if settings.helper_1_enable}}
-          <div class="col col--md-up-4">
+          <div class="col">
             <a id="helper-1" href="{{settings.helper_1_url}}" class="helpers__block">
-                            <span class="helpers__icon">
-                                <img src="{{settings.helper_1_icon}}" alt="{{settings.helper_1_title}}" data-plugin-inline-svg>
-                            </span>
+              <span class="helpers__icon">
+                <img src="{{settings.helper_1_icon}}" alt="{{settings.helper_1_title}}" data-plugin-inline-svg>
+              </span>
               <span class="helpers__secondary-icon">
-                                <img src="{{settings.helper_1_icon_2}}" alt="{{settings.helper_1_title}}">
-                            </span>
+                <img src="{{settings.helper_1_icon_2}}" alt="{{settings.helper_1_title}}">
+              </span>
               <span class="h3 helpers__title">
-                {{#is settings.helper_1_title '-'}}
-                  FAQ
+                {{#if settings.translations_enable}}
+                  {{dc settings.helper_1_title}}
                 {{else}}
-                  {{#if settings.translations_enable}}
-                    {{dc settings.helper_1_title}}
-                  {{else}}
-                    {{settings.helper_1_title}}
-                  {{/if}}
-                {{/is}}
+                  {{settings.helper_1_title}}
+                {{/if}}
               </span>
               <span class="helpers__description">
-                {{#is settings.helper_1_description '-'}}
-                  {{#is help_center.locale 'en-us'}}Questions? Find the answer to any question.{{/is}}
-                  {{#is help_center.locale 'nl'}}
-                    Heb je een vraag? Vind hier het antwoord op al je vragen.{{/is}}
-                  {{#is help_center.locale 'fr'}}
-                    Vous avez une question ? Trouvez la réponse ici{{/is}}
-                  {{#is help_center.locale 'de-de'}}Fragen? Hier finden Sie Antworten.{{/is}}
-                  {{#is help_center.locale 'de'}}Fragen? Hier findest Du Antworten.{{/is}}
-                {{else}}
+                {{#isnt settings.helper_1_description '-'}}
                   {{#if settings.translations_enable}}
                     {{dc settings.helper_1_description}}
                   {{else}}
                     {{settings.helper_1_description}}
                   {{/if}}
-                {{/is}}
+                {{/isnt}}
               </span>
             </a>
           </div>
         {{/if}}
 
         {{#if settings.helper_2_enable}}
-          <div class="col col--md-up-4">
+          <div class="col">
             <a id="helper-2" href="{{settings.helper_2_url}}" class="helpers__block">
-                            <span class="helpers__icon">
-                                <img src="{{settings.helper_2_icon}}" alt="{{settings.helper_2_title}}" data-plugin-inline-svg>
-                            </span>
+              <span class="helpers__icon">
+                <img src="{{settings.helper_2_icon}}" alt="{{settings.helper_2_title}}" data-plugin-inline-svg>
+              </span>
               <span class="helpers__secondary-icon">
-                                <img src="{{settings.helper_2_icon_2}}" alt="{{settings.helper_2_title}}">
-                            </span>
+                <img src="{{settings.helper_2_icon_2}}" alt="{{settings.helper_2_title}}">
+              </span>
               <span class="h3 helpers__title">
-                {{#is settings.helper_2_title '-'}}
-                  {{#is help_center.locale 'en-us'}}Guides{{/is}}
-                  {{#is help_center.locale 'nl'}}Handleidingen{{/is}}
-                  {{#is help_center.locale 'fr'}}Manuels{{/is}}
-                  {{#is help_center.locale 'de-de'}}Anleitungen{{/is}}
-                  {{#is help_center.locale 'de'}}Anleitungen{{/is}}
+                {{#if settings.translations_enable}}
+                  {{dc settings.helper_2_title}}
                 {{else}}
-                  {{#if settings.translations_enable}}
-                    {{dc settings.helper_2_title}}
-                  {{else}}
-                    {{settings.helper_2_title}}
-                  {{/if}}
-                {{/is}}
+                  {{settings.helper_2_title}}
+                {{/if}}
               </span>
               <span class="helpers__description">
-                {{#is settings.helper_2_description '-'}}
-                  {{#is help_center.locale 'en-us'}}Need help? We have you covered.{{/is}}
-                  {{#is help_center.locale 'nl'}}Hulp nodig? We zijn er voor je.{{/is}}
-                  {{#is help_center.locale 'fr'}}Besoin d'aide? Nous sommes là pour vous.{{/is}}
-                  {{#is help_center.locale 'de-de'}}Brauchen Sie Hilfe? Wir kümmern uns um Sie.{{/is}}
-                  {{#is help_center.locale 'de'}}Brauchst Du Hilfe? Wir kümmern uns um Dich.{{/is}}
-                {{else}}
+                {{#isnt settings.helper_2_description '-'}}
                   {{#if settings.translations_enable}}
                     {{dc settings.helper_2_description}}
                   {{else}}
                     {{settings.helper_2_description}}
                   {{/if}}
-                {{/is}}
+                {{/isnt}}
               </span>
             </a>
           </div>
         {{/if}}
 
         {{#if settings.helper_3_enable}}
-          <div class="col col--md-up-4">
+          <div class="col">
             <a id="helper-3" href="{{settings.helper_3_url}}" class="helpers__block">
-                            <span class="helpers__icon">
-                                <img src="{{settings.helper_3_icon}}" alt="{{settings.helper_3_title}}" data-plugin-inline-svg>
-                            </span>
+              <span class="helpers__icon">
+                <img src="{{settings.helper_3_icon}}" alt="{{settings.helper_3_title}}" data-plugin-inline-svg>
+              </span>
               <span class="helpers__secondary-icon">
-                                <img src="{{settings.helper_3_icon_2}}" alt="{{settings.helper_3_title}}">
-                            </span>
+                <img src="{{settings.helper_3_icon_2}}" alt="{{settings.helper_3_title}}">
+              </span>
               <span class="h3 helpers__title">
-                {{#is settings.helper_3_title '-'}}
-                  {{#is help_center.locale 'en-us'}}Submit a request{{/is}}
-                  {{#is help_center.locale 'nl'}}Verstuur een aanvraag{{/is}}
-                  {{#is help_center.locale 'fr'}}Envoyez une demande{{/is}}
-                  {{#is help_center.locale 'de-de'}}Anfrage einreichen{{/is}}
-                  {{#is help_center.locale 'de'}}Anfrage einreichen{{/is}}
+                {{#if settings.translations_enable}}
+                  {{dc settings.helper_3_title}}
                 {{else}}
-                  {{#if settings.translations_enable}}
-                    {{dc settings.helper_3_title}}
-                  {{else}}
-                    {{settings.helper_3_title}}
-                  {{/if}}
-                {{/is}}
+                  {{settings.helper_3_title}}
+                {{/if}}
               </span>
               <span class="helpers__description">
-                {{#is settings.helper_3_description '-'}}
-                  {{#is help_center.locale 'en-us'}}
-                    Contact us through a specially prepared form.{{/is}}
-                  {{#is help_center.locale 'nl'}}Contacteer ons via een formulier{{/is}}
-                  {{#is help_center.locale 'fr'}}Contactez-nous via le formulaire{{/is}}
-                  {{#is help_center.locale 'de-de'}}
-                    Kontaktieren Sie uns über das Anfrageformular.{{/is}}
-                  {{#is help_center.locale 'de'}}Nimm Kontakt über unser Anfrageformular auf.{{/is}}
-                {{else}}
+                {{#isnt settings.helper_3_description '-'}}
                   {{#if settings.translations_enable}}
                     {{dc settings.helper_3_description}}
                   {{else}}
                     {{settings.helper_3_description}}
                   {{/if}}
-                {{/is}}
+                {{/isnt}}
+              </span>
+            </a>
+          </div>
+        {{/if}}
+
+        {{#if settings.helper_4_enable}}
+          <div class="col">
+            <a id="helper-3" href="{{settings.helper_4_url}}" class="helpers__block">
+              <span class="helpers__icon">
+                <img src="{{settings.helper_4_icon}}" alt="{{settings.helper_4_title}}" data-plugin-inline-svg>
+              </span>
+              <span class="helpers__secondary-icon">
+                <img src="{{settings.helper_4_icon_2}}" alt="{{settings.helper_4_title}}">
+              </span>
+              <span class="h3 helpers__title">
+                {{#if settings.translations_enable}}
+                  {{dc settings.helper_4_title}}
+                {{else}}
+                  {{settings.helper_4_title}}
+                {{/if}}
+              </span>
+              <span class="helpers__description">
+                {{#isnt settings.helper_4_description '-'}}
+                  {{#if settings.translations_enable}}
+                    {{dc settings.helper_4_description}}
+                  {{else}}
+                    {{settings.helper_4_description}}
+                  {{/if}}
+                {{/isnt}}
+              </span>
+            </a>
+          </div>
+        {{/if}}
+
+        {{#if settings.helper_5_enable}}
+          <div class="col">
+            <a id="helper-3" href="{{settings.helper_5_url}}" class="helpers__block">
+              <span class="helpers__icon">
+                <img src="{{settings.helper_5_icon}}" alt="{{settings.helper_5_title}}" data-plugin-inline-svg>
+              </span>
+              <span class="helpers__secondary-icon">
+                <img src="{{settings.helper_5_icon_2}}" alt="{{settings.helper_5_title}}">
+              </span>
+              <span class="h3 helpers__title">
+                {{#if settings.translations_enable}}
+                  {{dc settings.helper_5_title}}
+                {{else}}
+                  {{settings.helper_5_title}}
+                {{/if}}
+              </span>
+              <span class="helpers__description">
+                {{#isnt settings.helper_5_description '-'}}
+                  {{#if settings.translations_enable}}
+                    {{dc settings.helper_5_description}}
+                  {{else}}
+                    {{settings.helper_5_description}}
+                  {{/if}}
+                {{/isnt}}
               </span>
             </a>
           </div>

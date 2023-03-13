@@ -1345,11 +1345,25 @@ html[dir=ltr] .breadcrumbs li {
   }
 }
 
+html[dir] .helpers--type-2,
 html[dir] .helpers--type-3 {
   background: url($assets-bg-1-svg) no-repeat center;
   background-size: 100% auto;
   border-top: none !important;
+}
+
+html[dir] .helpers--type-3 {
   padding: 75px 0;
+}
+
+html[dir] .helpers--style-2.helpers--type-2 .helpers__block {
+  background-color: var(--secondary-color);
+}
+
+html[dir] .helpers--style-2.helpers--type-2 .helpers__block:hover,
+html[dir] .helpers--style-2.helpers--type-2 .helpers__block:focus,
+html[dir] .helpers--style-2.helpers--type-2 .helpers__block:active {
+  background-color: var(--secondary-color-hover);
 }
 
 [dir] .helpers--type-3::before,
@@ -1414,10 +1428,12 @@ html[dir] .helpers--type-3 .helpers__description {
 }
 
 @media only screen and (min-width: 568px) and (max-aspect-ratio: 13 / 9), only screen and (min-width: 668px) and (min-height: 416px), only screen and (min-width: 980px) {
+  .helpers--type-2 .col:nth-child(odd) .helpers__block,
   .helpers--type-3 .col:nth-child(odd) .helpers__block {
     transform: translateY(-16px);
   }
 
+  .helpers--type-2 .col:nth-child(even) .helpers__block,
   .helpers--type-3 .col:nth-child(even) .helpers__block {
     transform: translateY(16px);
   }
@@ -1610,6 +1626,15 @@ html[dir] .page-heading__meta {
     top: 200px;
     left: calc(50% + 50vw);
     transform: translateX(-100%);
+  }
+
+  html[dir] .welcome__title {
+    font-size: 64px;
+  }
+
+  html[dir] .welcome__description {
+    font-size: 24px;
+    line-height: 30px;
   }
 }
 
@@ -1834,4 +1859,26 @@ html[dir] .page-heading__nav {
 
 [dir] .form-container #hc-wysiwyg {
   border: none;
+}
+
+@media only screen and (min-width: 1200px) {
+  [dir] .welcome--type-3 .welcome__image img,
+  [dir] .welcome--type-3 .welcome__image svg {
+    width: 93%;
+  }
+}
+
+.helpers__row {
+  flex-wrap: nowrap;
+}
+
+.helpers__row .col {
+  flex: 1 0 20%;
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 980px) {
+  [dir] .helpers--type-2 .helpers__secondary-icon img {
+    max-width: 100%;
+  }
 }
