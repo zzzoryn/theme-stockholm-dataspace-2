@@ -70,6 +70,7 @@
       <h2 class="h1">
         {{#is settings.welcome_title '-'}}
           {{#is help_center.locale 'en-us'}}Hey, how can we help?{{/is}}
+          {{#is help_center.locale 'en-gb'}}Hey, how can we help?{{/is}}
           {{#is help_center.locale 'nl'}}Hey, hoe kunnen we je helpen?{{/is}}
           {{#is help_center.locale 'fr'}}Hé, comment pouvons-nous vous aider?{{/is}}
           {{#is help_center.locale 'de-de'}}Hey, wie können wir Ihnen helfen?{{/is}}
@@ -84,6 +85,7 @@
       </h2>
       {{#is settings.search_placeholder '-'}}
         {{#is help_center.locale 'en-us'}}{{search instant=true placeholder="Type your question here..."}}{{/is}}
+        {{#is help_center.locale 'en-gb'}}{{search instant=true placeholder="Type your question here..."}}{{/is}}
         {{#is help_center.locale 'nl'}}{{search instant=true placeholder="Tik hier je vraag..."}}{{/is}}
         {{#is help_center.locale 'fr'}}{{search instant=true placeholder="Posez votre question ici..."}}{{/is}}
         {{#is help_center.locale 'de-de'}}{{search instant=true placeholder="Geben Sie hier ihre Frage ein..."}}{{/is}}
