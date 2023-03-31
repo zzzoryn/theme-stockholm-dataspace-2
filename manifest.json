@@ -1,7 +1,7 @@
 {
-  "name": "Vito Data Copernicus v2",
+  "name": "Vito Data Copernicus v3",
   "author": "Premium Plus",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "api_version": 2,
   "default_locale": "en-us",
   "settings": [
@@ -627,7 +627,7 @@
           "type": "text",
           "label": "Welcome description",
           "description": "Text above the search field",
-          "value": "Use the search bar or scroll down our page for more support options."
+          "value": "Scroll down our page for more support options."
         },
         {
           "identifier": "search_placeholder",
@@ -719,7 +719,7 @@
           "type": "text",
           "label": "Helper 1 title",
           "description": "Helper 1 title",
-          "value": "Data Offering"
+          "value": "FAQ"
         },
         {
           "identifier": "helper_1_description",
@@ -733,7 +733,7 @@
           "type": "text",
           "label": "Helper 1 url",
           "description": "Helper 1 url",
-          "value": "/hc/categories/9477103686685"
+          "value": "https://eu-cdse.github.io/documentation/FAQ.html"
         }
       ]
     },
@@ -764,7 +764,7 @@
           "type": "text",
           "label": "Helper 2 title",
           "description": "Helper 2 title",
-          "value": "Tools"
+          "value": "Documentation Center"
         },
         {
           "identifier": "helper_2_description",
@@ -778,7 +778,7 @@
           "type": "text",
           "label": "Helper 2 url",
           "description": "Helper 2 url",
-          "value": "/hc/categories/9477104683677"
+          "value": "https://eu-cdse.github.io/documentation/Home.html"
         }
       ]
     },
@@ -809,21 +809,21 @@
           "type": "text",
           "label": "Helper 3 title",
           "description": "Helper 3 title",
-          "value": "API's"
+          "value": "Performance dashboard"
         },
         {
           "identifier": "helper_3_description",
           "type": "text",
           "label": "Helper 3 description",
           "description": "Helper 3 description",
-          "value": "Questions? Find the answer to any question."
+          "value": "-"
         },
         {
           "identifier": "helper_3_url",
           "type": "text",
           "label": "Helper 3 url",
           "description": "Helper 3 url",
-          "value": "/hc/categories/9477140705565"
+          "value": "https://dashboards.terrascope.be/status"
         }
       ]
     },
@@ -854,21 +854,21 @@
           "type": "text",
           "label": "Helper 4 title",
           "description": "Helper 4 title",
-          "value": "Ecosystem Services"
+          "value": "Submit a request"
         },
         {
           "identifier": "helper_4_description",
           "type": "text",
           "label": "Helper 4 description",
           "description": "Helper 4 description",
-          "value": "Need help? We have you covered."
+          "value": "Contact us through a specially prepared form."
         },
         {
           "identifier": "helper_4_url",
           "type": "text",
           "label": "Helper 4 url",
           "description": "Helper 4 url",
-          "value": "/categories/9477156647069"
+          "value": "/hc/requests/new"
         }
       ]
     },
@@ -880,7 +880,7 @@
           "type": "checkbox",
           "label": "Enable helper 5",
           "description": "Enable helper 5",
-          "value": true
+          "value": false
         },
         {
           "identifier": "helper_5_icon",
@@ -925,7 +925,7 @@
           "type": "checkbox",
           "label": "Enable category blocks",
           "description": "Enable the category blocks component",
-          "value": true
+          "value": false
         },
         {
           "identifier": "category_blocks_type",
