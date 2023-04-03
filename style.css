@@ -1132,6 +1132,16 @@ html[dir] .page-heading--style-2 {
   text-decoration: underline;
 }
 
+.custom-footer__menu li a[target="blank"]::after,
+.custom-footer__menu li a[target="_blank"]::after {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1277_2514)'%3E%3Cpath d='M5.33366 2.66675H2.00033C1.6467 2.66675 1.30756 2.80722 1.05752 3.05727C0.807468 3.30732 0.666992 3.64646 0.666992 4.00008V10.0001C0.666992 10.3537 0.807468 10.6928 1.05752 10.9429C1.30756 11.1929 1.6467 11.3334 2.00033 11.3334H8.00033C8.35395 11.3334 8.69309 11.1929 8.94313 10.9429C9.19318 10.6928 9.33366 10.3537 9.33366 10.0001V6.66675M4.66699 7.33341L11.3337 0.666748M11.3337 0.666748H8.00033M11.3337 0.666748V4.00008' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1277_2514'%3E%3Crect width='12' height='12' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+  margin-left: 8px;
+}
+
 .custom-footer__menu li a:hover {
   text-decoration: none;
 }
