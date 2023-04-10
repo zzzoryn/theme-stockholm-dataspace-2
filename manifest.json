@@ -1,7 +1,7 @@
 {
-  "name": "Vito Data Copernicus v3",
+  "name": "Vito Data Copernicus v4",
   "author": "Premium Plus",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "api_version": 2,
   "default_locale": "en-us",
   "settings": [
@@ -733,7 +733,7 @@
           "type": "text",
           "description": "Helper 1 url",
           "label": "Helper 1 url",
-          "value": "https://eu-cdse.github.io/documentation/FAQ.html"
+          "value": "https://documentation.staging.dataspace.copernicus.eu/#/FAQ"
         }
       ]
     },
@@ -778,7 +778,7 @@
           "type": "text",
           "description": "Helper 2 url",
           "label": "Helper 2 url",
-          "value": "https://eu-cdse.github.io/documentation/Home.html"
+          "value": "https://documentation.staging.dataspace.copernicus.eu"
         }
       ]
     },

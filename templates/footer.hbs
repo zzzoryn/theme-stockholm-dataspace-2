@@ -4,56 +4,46 @@
   <div class="container">
     <div class="custom-footer__top">
       <div class="custom-footer__logo">
-        <a href="/hc/{{help_center.locale}}" class="custom-header__logo">
+        <a href="https://dataspace.copernicus.eu" class="custom-header__logo">
           <img src="{{settings.logo}}" alt="{{help_center.name}}">
         </a>
       </div>
       <div class="row">
         <div class="col col--md-up-2" data-plugin-spoiler>
-          <div class="custom-footer__heading js-spoiler-toggle">Explore data</div>
+          <div class="custom-footer__heading is-hidden--md-up js-spoiler-toggle">Explore data</div>
+          <a href="https://dataspace.copernicus.eu/explore-data" class="custom-footer__heading is-hidden--sm-down">Explore
+            data</a>
           <ul class="custom-footer__menu js-spoiler">
-            <li><a href="#">Copernicus browser</a></li>
-            <li><a href="#">Data collections</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Showcases</a></li>
+            <li><a href="https://dataspace.copernicus.eu/browser/" target="_blank">Copernicus browser</a></li>
+            <li><a href="https://dataspace.copernicus.eu/explore-data/data-collections">Data collections</a></li>
           </ul>
         </div>
         <div class="col col--md-up-2" data-plugin-spoiler>
-          <div class="custom-footer__heading js-spoiler-toggle">Analyse</div>
+          <div class="custom-footer__heading is-hidden--md-up js-spoiler-toggle">Analyse</div>
+          <a href="https://dataspace.copernicus.eu/analyse" class="custom-footer__heading is-hidden--sm-down">Analyse</a>
           <ul class="custom-footer__menu js-spoiler">
-            <li><a href="#">Data workspace</a></li>
-            <li><a href="#">Jupyter Hub</a></li>
-            <li><a href="#">openEO web editor</a></li>
-            <li><a href="#">API</a></li>
-            <li><a href="#">Traceability</a></li>
+            <li><a href="https://dataspace.copernicus.eu/analyse/data-workspace">Data workspace</a></li>
+            <li><a href="https://dataspace.copernicus.eu/analyse/jupyter-notebooks">Jupyter Hub</a></li>
+            <li><a href="https://dataspace.copernicus.eu/analyse/open-eo-editor">openEO web editor</a></li>
+            <li><a href="https://dataspace.copernicus.eu/analyse/apis">API</a></li>
+            <li><a href="https://dataspace.copernicus.eu/analyse/traceability">Traceability</a></li>
           </ul>
         </div>
         <div class="col col--md-up-2" data-plugin-spoiler>
-          <div class="custom-footer__heading js-spoiler-toggle">Ecosystem</div>
-          <ul class="custom-footer__menu js-spoiler">
-            <li><a href="#">Public ecosystem</a></li>
-            <li><a href="#">Commercial ecosystem</a></li>
-          </ul>
+          <a href="https://dataspace.copernicus.eu/ecosystem" class="custom-footer__heading">Ecosystem</a>
         </div>
         <div class="col col--md-up-2" data-plugin-spoiler>
           <div class="custom-footer__heading js-spoiler-toggle">More</div>
           <ul class="custom-footer__menu js-spoiler">
-            <li><a href="#" target="_blank">Support</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Education</a></li>
-            <li><a href="#">About</a></li>
+            {{#unless signed_in}}
+              <li>{{#link "sign_in"}}Login{{/link}}</li>
+            {{/unless}}
+            <li><a href="https://dataspace.copernicus.eu/news">News</a></li>
+            <li><a href="https://dataspace.copernicus.eu/events">Events</a></li>
+            <li><a href="https://dataspace.copernicus.eu/about">About</a></li>
           </ul>
         </div>
         <div class="col col--md-up-4">
-          {{!--
-          <div class="custom-footer__right-heading">Do you have questions?</div>
-          <div class="custom-footer__right-text">
-            Contact us via the <a href="/hc/{{help_center.locale}}/requests/new">about page</a>
-          </div>
-          --}}
           <div class="custom-footer__soc">
             {{#if settings.footer_youtube_enable}}
               <a id="footer-youtube" class="btn btn--circle btn--secondary" href="{{settings.footer_youtube_url}}" target="_blank">
@@ -85,8 +75,8 @@
       </div>
     </div>
     <div class="custom-footer__bottom">
-      <a href="#">Terms and conditions</a>
-      <a href="#">Privacy policy</a>
+      <a href="https://dataspace.copernicus.eu/terms-and-conditions">Terms and conditions</a>
+      <a href="https://dataspace.copernicus.eu/privacy-policy">Privacy policy</a>
     </div>
   </div>
 </footer>

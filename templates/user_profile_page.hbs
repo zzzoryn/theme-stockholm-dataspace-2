@@ -2,288 +2,288 @@
 <div class="page-heading page-heading--with-sidebar page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
      data-heading-style="{{settings.page_heading_style}}"
 >
-    <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
-        <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
-        <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
-    </div>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
 
-    <div class="container">
-        <div class="page-heading__breadcrumbs"></div>
-        <div class="page-heading__content">
-            <div class="page-heading__content-left">
-                <div class="page-heading__user">
-                    <div class="page-heading__user-avatar {{#if description}}page-heading__user-avatar--top{{/if}}">
-                        <img src="{{user.avatar_url}}" alt="{{user.name}}"/>
-                    </div>
-                    <div class="page-heading__user-info">
-                        <h1 class="h1 page-heading__title {{#if private_profile}}articles__link--internal{{/if}}">{{user.name}}</h1>
-                        {{#if description}}
-                            <p class="page-heading__description">{{description}}</p>
-                        {{/if}}
-                        {{#if user.url}}
-                            <a class="page-heading__description" href="{{user.url}}" target="_blank" title="{{t 'open_user_in_support'}}">
-                                {{t 'open_user_in_support'}}
-                            </a>
-                        {{/if}}
-                    </div>
-                </div>
-            </div>
-            <div class="subscribe-btn page-heading__content-right">
-                {{actions class='user-profile-actions btn-group'}}
-                {{subscribe}}
-            </div>
+  <div class="container">
+    <div class="page-heading__breadcrumbs"></div>
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <div class="page-heading__user">
+          <div class="page-heading__user-avatar {{#if description}}page-heading__user-avatar--top{{/if}}">
+            <img src="{{user.avatar_url}}" alt="{{user.name}}"/>
+          </div>
+          <div class="page-heading__user-info">
+            <h1 class="h1 page-heading__title {{#if private_profile}}articles__link--internal{{/if}}">{{user.name}}</h1>
+            {{#if description}}
+              <p class="page-heading__description">{{description}}</p>
+            {{/if}}
+            {{#if user.url}}
+              <a class="page-heading__description" href="{{user.url}}" target="_blank" title="{{t 'open_user_in_support'}}">
+                {{t 'open_user_in_support'}}
+              </a>
+            {{/if}}
+          </div>
         </div>
-
+      </div>
+      <div class="subscribe-btn page-heading__content-right">
+        {{actions class='user-profile-actions btn-group'}}
+        {{subscribe}}
+      </div>
     </div>
+
+  </div>
 </div>
 
 <div class="container">
-    <div class="row">
+  <div class="row">
 
-        {{! Content }}
-        <div class="col--lg-up-8 page-content__center-col page-content page-content--user-content">
-            {{#unless visible}}
-                <p>{{t 'private_activity'}}</p>
+    {{! Content }}
+    <div class="col--lg-up-8 page-content__center-col page-content page-content--user-content">
+      {{#unless visible}}
+        <p>{{t 'private_activity'}}</p>
+      {{/unless}}
+
+      {{#if visible}}
+        {{#unless member_since}}
+          <p>{{t 'private_activity'}}</p>
+        {{/unless}}
+
+        {{#if member_since}}
+
+          <div class="btn-group btn-group--large">
+            {{#each filters}}
+              {{#if selected}}
+                <span class="btn btn--primary no-hover btn--sm">{{name}}</span>
+              {{else}}
+                <a href="{{url}}" class="btn btn--light btn--sm">
+                  {{name}}
+                </a>
+              {{/if}}
+            {{/each}}
+          </div>
+
+          {{#is current_filter.identifier 'activities'}}
+            {{#unless activities}}
+              <p>{{t 'no_contributions'}}</p>
             {{/unless}}
 
-            {{#if visible}}
-                {{#unless member_since}}
-                    <p>{{t 'private_activity'}}</p>
-                {{/unless}}
+            {{#if activities}}
 
-                {{#if member_since}}
+              <div class="page-content__box">
+                <h2 class="comments__title">{{t 'activity_overview'}}</h2>
+                <p class="comments__subtitle">{{t 'latest_activity' name=user.name}}</p>
+              </div>
 
-                    <div class="btn-group btn-group--large">
-                        {{#each filters}}
-                            {{#if selected}}
-                                <span class="btn btn--primary no-hover btn--sm">{{name}}</span>
-                            {{else}}
-                                <a href="{{url}}" class="btn btn--light btn--sm">
-                                    {{name}}
-                                </a>
-                            {{/if}}
+              <div class="articles articles--simple articles--bordered page-content__box">
+                {{#each activities}}
+                  <div class="articles__item">
+                    {{#with contribution}}
+                      <a href="{{url}}" class="articles__link articles__link--h4">
+                                                <span>{{title}}{{#is object_type 'comment'}}
+                                                  / {{t 'comment'}}{{/is}}</span>
+
+                        {{#if pending}}
+                          <span class="post-status post-status--pinned">{{t 'pending_approval'}}</span>
+                        {{/if}}
+
+                        {{#if official}}
+                          <span class="post-status post-status--featured">{{t 'official_comment'}}</span>
+                        {{/if}}
+
+                        {{#is status 'none'}}
+                        {{else}}
+                          <span class="post-status post-status--{{status_dasherized}}">{{status_name}}</span>
+                        {{/is}}
+                      </a>
+                      <ol class="breadcrumbs">
+                        {{#each path_steps}}
+                          <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
                         {{/each}}
-                    </div>
-
-                    {{#is current_filter.identifier 'activities'}}
-                        {{#unless activities}}
-                            <p>{{t 'no_contributions'}}</p>
-                        {{/unless}}
-
-                        {{#if activities}}
-
-                            <div class="page-content__box">
-                                <h2 class="comments__title">{{t 'activity_overview'}}</h2>
-                                <p class="comments__subtitle">{{t 'latest_activity' name=user.name}}</p>
-                            </div>
-
-                            <div class="articles articles--simple articles--bordered page-content__box">
-                                {{#each activities}}
-                                    <div class="articles__item">
-                                        {{#with contribution}}
-                                            <a href="{{url}}" class="articles__link articles__link--h4">
-                                                <span>{{title}}{{#is object_type 'comment'}}
-                                                    / {{t 'comment'}}{{/is}}</span>
-
-                                                {{#if pending}}
-                                                    <span class="post-status post-status--pinned">{{t 'pending_approval'}}</span>
-                                                {{/if}}
-
-                                                {{#if official}}
-                                                    <span class="post-status post-status--featured">{{t 'official_comment'}}</span>
-                                                {{/if}}
-
-                                                {{#is status 'none'}}
-                                                {{else}}
-                                                    <span class="post-status post-status--{{status_dasherized}}">{{status_name}}</span>
-                                                {{/is}}
-                                            </a>
-                                            <ol class="breadcrumbs">
-                                                {{#each path_steps}}
-                                                    <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
-                                                {{/each}}
-                                            </ol>
-                                            <div class="articles__body">{{excerpt body characters=200}}</div>
-                                            <div class="articles__meta">
-                                                {{#if editor}}
-                                                    <span>{{t 'edited'}} {{date edited_at timeago=true}}</span>
-                                                {{/if}}
-                                                {{#each stats}}
-                                                    <span>{{label}}</span>
-                                                {{/each}}
-                                            </div>
-                                        {{/with}}
-                                    </div>
-                                {{/each}}
-                            </div>
+                      </ol>
+                      <div class="articles__body">{{excerpt body characters=200}}</div>
+                      <div class="articles__meta">
+                        {{#if editor}}
+                          <span>{{t 'edited'}} {{date edited_at timeago=true}}</span>
                         {{/if}}
-                    {{/is}}
-
-                    {{#is current_filter.identifier 'badges'}}
-                        {{#unless user.badges}}
-                            <p>{{t 'no_badges'}}</p>
-                        {{/unless}}
-
-                        {{#if user.badges}}
-                            <div class="page-content__box">
-                                <h2 class="comments__title">{{t 'badges'}}</h2>
-                                <p class="comments__subtitle">{{t 'badges_description' name=user.name}}</p>
-                            </div>
-
-                            <div class="articles articles--simple articles--bordered page-content__box">
-                                {{#each user.badges}}
-                                    <div class="articles__item badge">
-                                        <div class="profile-badges-item-image">
-                                            {{#if icon_url}}
-                                                <img class="badge" src="{{icon_url}}" alt="">
-                                            {{/if}}
-                                        </div>
-                                        <div>
-                                            <div id="title-{{id}}" class="articles__link articles__link--h4">
-                                                {{name}}
-                                            </div>
-                                            <div class="articles__body">
-                                                {{description}}
-                                            </div>
-                                            <div class="articles__meta">
-                                                <span>{{t 'badges_awarded'}}</span>
-                                                <span>{{date assigned_at format='medium'}}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                {{/each}}
-                            </div>
-                        {{/if}}
-                    {{/is}}
-
-                    {{#isnt current_filter.identifier 'activities'}}
-                        {{#isnt current_filter.identifier 'badges'}}
-                            {{#unless contributions}}
-                                <p>{{t 'no_contributions'}}</p>
-                            {{/unless}}
-
-                            {{#if contributions}}
-                                <div class="page-content__box">
-                                    <div class="row">
-                                        <div class="col--sm-up-6">
-                                            <h2 class="comments__title">{{t current_filter.identifier}}</h2>
-                                        </div>
-                                        {{#if sorters}}
-                                            <div class="col--sm-up-6 comments__sorted">
-                                                <div class="dropdown" data-plugin-dropdown>
-                                                    <a class="btn btn--md btn--sm-xs btn--color-primary js-dropdown-open" tabindex="0" role="button" aria-label="Open">
-                                                        {{current_sorter.label}}
-                                                    </a>
-                                                    <div class="dropdown__content dropdown__content--xs js-dropdown" role="menu" aria-hidden="true">
-                                                        {{#each sorters}}
-                                                            <a href="{{url}}" class="dropdown__menuitem" role="menuitem" aria-selected="{{selected}}">
-                                                                {{name}}
-                                                            </a>
-                                                        {{/each}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        {{/if}}
-                                    </div>
-                                </div>
-
-                                <div class="articles articles--simple articles--bordered page-content__box">
-                                    {{#each contributions}}
-                                        <div class="articles__item">
-
-                                            <a href="{{url}}" class="articles__link articles__link--h4">
-                                                <span>{{title}}{{#is object_type 'comment'}}
-                                                    / {{t 'comment'}}{{/is}}</span>
-                                                {{#if pending}}
-                                                    <span class="post-status post-status--pinned">{{t 'pending_approval'}}</span>
-                                                {{/if}}
-
-                                                {{#if official}}
-                                                    <span class="post-status post-status--featured">{{t 'official_comment'}}</span>
-                                                {{/if}}
-
-                                                {{#is status 'none'}}
-                                                {{else}}
-                                                    <span class="post-status post-status--{{status_dasherized}}">{{status_name}}</span>
-                                                {{/is}}
-                                            </a>
-                                            <ol class="breadcrumbs">
-                                                {{#each path_steps}}
-                                                    <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
-                                                {{/each}}
-                                            </ol>
-                                            <div class="articles__body">{{excerpt body characters=200}}</div>
-                                            <div class="articles__meta">
-                                                {{#if editor}}
-                                                    <span>{{t 'edited'}} {{date edited_at timeago=true}}</span>
-                                                {{/if}}
-                                                {{#each stats}}
-                                                    <span>{{label}}</span>
-                                                {{/each}}
-                                            </div>
-                                        </div>
-                                    {{/each}}
-                                    {{pagination}}
-                                </div>
-                            {{/if}}
-                        {{/isnt}}
-                    {{/isnt}}
-
-                {{/if}}
+                        {{#each stats}}
+                          <span>{{label}}</span>
+                        {{/each}}
+                      </div>
+                    {{/with}}
+                  </div>
+                {{/each}}
+              </div>
             {{/if}}
-        </div>
+          {{/is}}
 
-        {{! Sidebar }}
-        <div class="col--lg-up-4  page-content__right-col">
-            <div class="sidebar">
-                <div class="row">
-                    <div class="col--sm-6 col--md-6 sidebar__box">
-                        <dl class="details details--type-2">
-                            <dt>{{t 'total_activity'}}</dt>
-                            <dd>{{total_activity}}</dd>
-                            <dt>{{t 'last_activity'}}</dt>
-                            <dd>
-                                {{#if last_activity_at}}
-                                    {{date last_activity_at timeago=true}}
-                                {{else}}
-                                    {{t 'no_activity_yet'}}
-                                {{/if}}
-                            </dd>
-                            <dt>{{t 'member_since'}}</dt>
-                            <dd>
-                                {{#if member_since}}
-                                    {{date member_since timeago=true}}
-                                {{else}}
-                                    {{t 'no_activity_yet'}}
-                                {{/if}}
-                            </dd>
-                        </dl>
+          {{#is current_filter.identifier 'badges'}}
+            {{#unless user.badges}}
+              <p>{{t 'no_badges'}}</p>
+            {{/unless}}
+
+            {{#if user.badges}}
+              <div class="page-content__box">
+                <h2 class="comments__title">{{t 'badges'}}</h2>
+                <p class="comments__subtitle">{{t 'badges_description' name=user.name}}</p>
+              </div>
+
+              <div class="articles articles--simple articles--bordered page-content__box">
+                {{#each user.badges}}
+                  <div class="articles__item badge">
+                    <div class="profile-badges-item-image">
+                      {{#if icon_url}}
+                        <img class="badge" src="{{icon_url}}" alt="">
+                      {{/if}}
                     </div>
-                    <div class="col--sm-6 col--md-6 sidebar__box">
-                        <dl class="details details--type-2">
-                            <dt>{{t 'following'}}</dt>
-                            <dd>{{t 'users_count' count=following_count}}</dd>
-                            <dt>{{t 'followed_by'}}</dt>
-                            <dd>{{t 'users_count' count=follower_count}}</dd>
-                            <dt>{{t 'votes'}}</dt>
-                            <dd>{{vote_count}}</dd>
-                            <dt>{{t 'subscriptions'}}</dt>
-                            <dd>{{subscription_count}}</dd>
-                        </dl>
-                        {{#if user.badges}}
-                            <div class="badges">
-                                {{#each (slice (filter (filter user.badges on="category_slug" equals="achievements")on="icon_url"starts_with="https") 0 4)}}
-                                    <img src="{{icon_url}}" alt="{{name}}" title="{{name}} | {{description}}"/>
-                                {{/each}}
-                                {{#if (compare (calc user.badges.length "-" 4) ">" 0)}}
-                                    {{#link "user_profile" id=user.id filter_by="badges" class="community-badge-achievements-rest"}}{{t 'plus_more' count=(calc user.badges.length "-" 4)}}{{/link}}
-                                {{/if}}
-                            </div>
-                        {{/if}}
+                    <div>
+                      <div id="title-{{id}}" class="articles__link articles__link--h4">
+                        {{name}}
+                      </div>
+                      <div class="articles__body">
+                        {{description}}
+                      </div>
+                      <div class="articles__meta">
+                        <span>{{t 'badges_awarded'}}</span>
+                        <span>{{date assigned_at format='medium'}}</span>
+                      </div>
                     </div>
+                  </div>
+                {{/each}}
+              </div>
+            {{/if}}
+          {{/is}}
+
+          {{#isnt current_filter.identifier 'activities'}}
+            {{#isnt current_filter.identifier 'badges'}}
+              {{#unless contributions}}
+                <p>{{t 'no_contributions'}}</p>
+              {{/unless}}
+
+              {{#if contributions}}
+                <div class="page-content__box">
+                  <div class="row">
+                    <div class="col--sm-up-6">
+                      <h2 class="comments__title">{{t current_filter.identifier}}</h2>
+                    </div>
+                    {{#if sorters}}
+                      <div class="col--sm-up-6 comments__sorted">
+                        <div class="dropdown" data-plugin-dropdown>
+                          <a class="btn btn--md btn--sm-xs btn--color-primary js-dropdown-open" tabindex="0" role="button" aria-label="Open">
+                            {{current_sorter.label}}
+                          </a>
+                          <div class="dropdown__content dropdown__content--xs js-dropdown" role="menu" aria-hidden="true">
+                            {{#each sorters}}
+                              <a href="{{url}}" class="dropdown__menuitem" role="menuitem" aria-selected="{{selected}}">
+                                {{name}}
+                              </a>
+                            {{/each}}
+                          </div>
+                        </div>
+                      </div>
+                    {{/if}}
+                  </div>
                 </div>
-            </div>
-        </div>
 
+                <div class="articles articles--simple articles--bordered page-content__box">
+                  {{#each contributions}}
+                    <div class="articles__item">
+
+                      <a href="{{url}}" class="articles__link articles__link--h4">
+                                                <span>{{title}}{{#is object_type 'comment'}}
+                                                  / {{t 'comment'}}{{/is}}</span>
+                        {{#if pending}}
+                          <span class="post-status post-status--pinned">{{t 'pending_approval'}}</span>
+                        {{/if}}
+
+                        {{#if official}}
+                          <span class="post-status post-status--featured">{{t 'official_comment'}}</span>
+                        {{/if}}
+
+                        {{#is status 'none'}}
+                        {{else}}
+                          <span class="post-status post-status--{{status_dasherized}}">{{status_name}}</span>
+                        {{/is}}
+                      </a>
+                      <ol class="breadcrumbs">
+                        {{#each path_steps}}
+                          <li title="{{name}}"><a href="{{url}}">{{name}}</a></li>
+                        {{/each}}
+                      </ol>
+                      <div class="articles__body">{{excerpt body characters=200}}</div>
+                      <div class="articles__meta">
+                        {{#if editor}}
+                          <span>{{t 'edited'}} {{date edited_at timeago=true}}</span>
+                        {{/if}}
+                        {{#each stats}}
+                          <span>{{label}}</span>
+                        {{/each}}
+                      </div>
+                    </div>
+                  {{/each}}
+                  {{pagination}}
+                </div>
+              {{/if}}
+            {{/isnt}}
+          {{/isnt}}
+
+        {{/if}}
+      {{/if}}
     </div>
+
+    {{! Sidebar }}
+    <div class="col--lg-up-4  page-content__right-col">
+      <div class="sidebar">
+        <div class="row">
+          <div class="col--sm-6 col--md-6 sidebar__box">
+            <dl class="details details--type-2">
+              <dt>{{t 'total_activity'}}</dt>
+              <dd>{{total_activity}}</dd>
+              <dt>{{t 'last_activity'}}</dt>
+              <dd>
+                {{#if last_activity_at}}
+                  {{date last_activity_at timeago=true}}
+                {{else}}
+                  {{t 'no_activity_yet'}}
+                {{/if}}
+              </dd>
+              <dt>{{t 'member_since'}}</dt>
+              <dd>
+                {{#if member_since}}
+                  {{date member_since timeago=true}}
+                {{else}}
+                  {{t 'no_activity_yet'}}
+                {{/if}}
+              </dd>
+            </dl>
+          </div>
+          <div class="col--sm-6 col--md-6 sidebar__box">
+            <dl class="details details--type-2">
+              <dt>{{t 'following'}}</dt>
+              <dd>{{t 'users_count' count=following_count}}</dd>
+              <dt>{{t 'followed_by'}}</dt>
+              <dd>{{t 'users_count' count=follower_count}}</dd>
+              <dt>{{t 'votes'}}</dt>
+              <dd>{{vote_count}}</dd>
+              <dt>{{t 'subscriptions'}}</dt>
+              <dd>{{subscription_count}}</dd>
+            </dl>
+            {{#if user.badges}}
+              <div class="badges">
+                {{#each (slice (filter (filter user.badges on="category_slug" equals="achievements")on="icon_url"starts_with="https") 0 4)}}
+                  <img src="{{icon_url}}" alt="{{name}}" title="{{name}} | {{description}}"/>
+                {{/each}}
+                {{#if (compare (calc user.badges.length "-" 4) ">" 0)}}
+                  {{#link "user_profile" id=user.id filter_by="badges" class="community-badge-achievements-rest"}}{{t 'plus_more' count=(calc user.badges.length "-" 4)}}{{/link}}
+                {{/if}}
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

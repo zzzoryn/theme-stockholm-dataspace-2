@@ -1223,4 +1223,16 @@ $$.jqueryPlugin('autosubmit', {
   }
 });
 
+$$.jqueryPlugin('breadcrumbs', {
+  methods: {
+    init: function(uid, options, $container) {
+      var title = 'Help Center';
+      var $firstItem = $container.find('li').first();
+
+      $firstItem.attr('title', title);
+      $firstItem.find('a').text(title);
+    }
+  }
+});
+
 $(window).trigger('script:loaded');

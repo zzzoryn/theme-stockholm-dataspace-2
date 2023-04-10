@@ -2,226 +2,226 @@
 <div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
      data-heading-style="{{settings.page_heading_style}}"
 >
-    <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
-        <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
-        <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs" data-plugin-breadcrumbs>
+      {{breadcrumbs}}
     </div>
 
-    <div class="container">
-        <div class="page-heading__breadcrumbs">
-            {{breadcrumbs}}
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title">{{post.title}}</h1>
+        <div class="page-heading__meta">
+          {{#isnt settings.author_type 'none'}}
+            <a href="{{post.author.url}}" class="page-heading__author">
+              {{#is settings.author_type 'avatar'}}
+                <img src="{{post.author.avatar_url}}" alt="{{post.author.name}}">
+              {{/is}}
+              <span>{{post.author.name}}</span>
+            </a>
+          {{/isnt}}
+          {{#if settings.date_enable}}
+            <span>{{date post.created_at}}</span>
+          {{/if}}
+          {{#if post.pinned}}
+            <span class="post-status post-status--pinned">{{t 'pinned'}}</span>
+          {{/if}}
+
+          {{#if post.featured}}
+            <span class="post-status post-status--featured">{{t 'featured'}}</span>
+          {{/if}}
+
+          {{#is post.status 'none'}}
+          {{else}}
+            <span class="post-status post-status--{{post.status_dasherized}}">{{post.status_name}}</span>
+          {{/is}}
         </div>
-
-        <div class="page-heading__content">
-            <div class="page-heading__content-left">
-                <h1 class="h1 page-heading__title">{{post.title}}</h1>
-                <div class="page-heading__meta">
-                    {{#isnt settings.author_type 'none'}}
-                        <a href="{{post.author.url}}" class="page-heading__author">
-                            {{#is settings.author_type 'avatar'}}
-                                <img src="{{post.author.avatar_url}}" alt="{{post.author.name}}">
-                            {{/is}}
-                            <span>{{post.author.name}}</span>
-                        </a>
-                    {{/isnt}}
-                    {{#if settings.date_enable}}
-                        <span>{{date post.created_at}}</span>
-                    {{/if}}
-                    {{#if post.pinned}}
-                        <span class="post-status post-status--pinned">{{t 'pinned'}}</span>
-                    {{/if}}
-
-                    {{#if post.featured}}
-                        <span class="post-status post-status--featured">{{t 'featured'}}</span>
-                    {{/if}}
-
-                    {{#is post.status 'none'}}
-                    {{else}}
-                        <span class="post-status post-status--{{post.status_dasherized}}">{{post.status_name}}</span>
-                    {{/is}}
-                </div>
-            </div>
-            <div class="subscribe-btn page-heading__content-right">
-                {{link 'new_post' role='button' class='btn btn--primary'}}
-                {{subscribe}}
-            </div>
-        </div>
+      </div>
+      <div class="subscribe-btn page-heading__content-right">
+        {{link 'new_post' role='button' class='btn btn--primary'}}
+        {{subscribe}}
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="container page-content">
-    <div class="row">
-        <div class="col--lg-up-8 offset--lg-up-2 page-content__center-col">
+  <div class="row">
+    <div class="col--lg-up-8 offset--lg-up-2 page-content__center-col">
 
-            {{! Post body }}
-            <div class="comments__item-body markdown">
-                {{post.details}}
+      {{! Post body }}
+      <div class="comments__item-body markdown">
+        {{post.details}}
+      </div>
+
+      <div class="comments__item-meta">
+        <div class="comments__item-meta-left">
+          {{#link 'user_profile' id=post.author.id}}
+            {{post.author.name}}
+          {{/link}}
+
+          <span>
+            {{#if post.editor}}
+              {{date post.edited_at timeago=true}}
+            {{else}}
+              {{date post.created_at timeago=true}}
+            {{/if}}
+          </span>
+        </div>
+
+        <div class="comments__item-actions-container">
+
+          <div class="comments__item-vote">
+            {{#post.vote 'down' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
+              <span>-</span>
+            {{/post.vote}}
+            <span>{{post.vote 'sum'}}</span>
+            {{#post.vote 'up' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
+              <span>+</span>
+            {{/post.vote}}
+          </div>
+
+          <div class="comments__item-actions">
+            {{post.actions}}
+          </div>
+        </div>
+      </div>
+
+      {{! Post content tags }}
+      {{#if (compare post.content_tags.length ">" 0)}}
+        <div class="col page-content__box-col">
+          <p class="labels-title">{{t 'content_tags_label'}}:</p>
+          <div class="labels">
+            {{#each post.content_tags}}
+              {{#link "search_result" content_tag_id=id class="btn btn--xs btn--gray"}}
+                <svg width="12" height="12"><use xlink:href="#search"></use></svg>
+                <span>{{name}}</span>
+              {{/link}}
+            {{/each}}
+          </div>
+        </div>
+      {{/if}}
+
+      <div class="comments__item-share">
+        {{share}}
+      </div>
+
+      {{! Post comments }}
+      {{#if comments}}
+        <div class="page-content__bordered-box">
+          <div class="row">
+
+            <div class="col--xs-up-6">
+              <h3 class="comments__title">{{t 'comments'}}</h3>
+              <p class="comments__subtitle">{{t 'comments_count' count=post.comment_count}}</p>
             </div>
 
-            <div class="comments__item-meta">
-                <div class="comments__item-meta-left">
-                    {{#link 'user_profile' id=post.author.id}}
-                        {{post.author.name}}
-                    {{/link}}
+            <div class="col--xs-up-6 comments__sorted">
+              <div class="dropdown" data-plugin-dropdown>
+                <a class="btn btn--md btn--color-primary js-dropdown-open" tabindex="0" role="button">{{t 'sort_by'}}</a>
+                <div class="dropdown__content dropdown__content--xs js-dropdown" role="menu" aria-hidden="true">
+                  {{#each comment_sorters}}
+                    <a href="{{url}}" class="dropdown__menuitem" role="menuitem" aria-selected="{{selected}}">
+                      {{name}}
+                    </a>
+                  {{/each}}
+                </div>
+              </div>
+            </div>
 
-                    <span>
-                        {{#if post.editor}}
-                            {{date post.edited_at timeago=true}}
+          </div>
+
+          <ul class="comments__list" id="comments">
+            {{#each comments}}
+              <li class="comments__item {{#if official}}comments__item--official{{/if}}" id="{{anchor}}">
+
+                <a class="comments__item-avatar" href="{{author.url}}">
+                  <img src="{{author.avatar_url}}" alt="{{author.name}}">
+                </a>
+
+                <div class="comments__item-container">
+                  <div class="comments__item-body">
+                    {{#if official}}
+                      <div class="post-status post-status--answered">
+                        {{t 'official_comment'}}
+                      </div>
+                    {{/if}}
+                    {{body}}
+                  </div>
+                  <div class="comments__item-meta">
+                    <div class="comments__item-meta-left">
+                      {{#link 'user_profile' id=author.id}}
+                        {{author.name}}
+                      {{/link}}
+
+                      <span>
+                        {{#if editor}}
+                          {{date edited_at timeago=true}}
                         {{else}}
-                            {{date post.created_at timeago=true}}
+                          {{date created_at timeago=true}}
                         {{/if}}
-                    </span>
-                </div>
+                      </span>
+                    </div>
 
-                <div class="comments__item-actions-container">
-
-                    <div class="comments__item-vote">
-                        {{#post.vote 'down' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
+                    <div class="comments__item-actions-container">
+                      {{#unless official}}
+                        <div class="comments__item-vote">
+                          {{#vote 'down' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
                             <span>-</span>
-                        {{/post.vote}}
-                        <span>{{post.vote 'sum'}}</span>
-                        {{#post.vote 'up' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
+                          {{/vote}}
+                          <span>{{vote 'sum'}}</span>
+                          {{#vote 'up' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
                             <span>+</span>
-                        {{/post.vote}}
-                    </div>
-
-                    <div class="comments__item-actions">
-                        {{post.actions}}
-                    </div>
-                </div>
-            </div>
-
-            {{! Post content tags }}
-            {{#if (compare post.content_tags.length ">" 0)}}
-                <div class="col page-content__box-col">
-                    <p class="labels-title">{{t 'content_tags_label'}}:</p>
-                    <div class="labels">
-                        {{#each post.content_tags}}
-                            {{#link "search_result" content_tag_id=id class="btn btn--xs btn--gray"}}
-                                <svg width="12" height="12"><use xlink:href="#search"></use></svg>
-                                <span>{{name}}</span>
-                            {{/link}}
-                        {{/each}}
-                    </div>
-                </div>
-            {{/if}}
-
-            <div class="comments__item-share">
-                {{share}}
-            </div>
-
-            {{! Post comments }}
-            {{#if comments}}
-                <div class="page-content__bordered-box">
-                    <div class="row">
-
-                        <div class="col--xs-up-6">
-                            <h3 class="comments__title">{{t 'comments'}}</h3>
-                            <p class="comments__subtitle">{{t 'comments_count' count=post.comment_count}}</p>
+                          {{/vote}}
                         </div>
-
-                        <div class="col--xs-up-6 comments__sorted">
-                            <div class="dropdown" data-plugin-dropdown>
-                                <a class="btn btn--md btn--color-primary js-dropdown-open" tabindex="0" role="button">{{t 'sort_by'}}</a>
-                                <div class="dropdown__content dropdown__content--xs js-dropdown" role="menu" aria-hidden="true">
-                                    {{#each comment_sorters}}
-                                        <a href="{{url}}" class="dropdown__menuitem" role="menuitem" aria-selected="{{selected}}">
-                                            {{name}}
-                                        </a>
-                                    {{/each}}
-                                </div>
-                            </div>
-                        </div>
-
+                      {{/unless}}
+                      <div class="comments__item-actions">
+                        {{actions}}
+                      </div>
                     </div>
 
-                    <ul class="comments__list" id="comments">
-                        {{#each comments}}
-                            <li class="comments__item {{#if official}}comments__item--official{{/if}}" id="{{anchor}}">
-
-                                <a class="comments__item-avatar" href="{{author.url}}">
-                                    <img src="{{author.avatar_url}}" alt="{{author.name}}">
-                                </a>
-
-                                <div class="comments__item-container">
-                                    <div class="comments__item-body">
-                                        {{#if official}}
-                                            <div class="post-status post-status--answered">
-                                                {{t 'official_comment'}}
-                                            </div>
-                                        {{/if}}
-                                        {{body}}
-                                    </div>
-                                    <div class="comments__item-meta">
-                                        <div class="comments__item-meta-left">
-                                            {{#link 'user_profile' id=author.id}}
-                                                {{author.name}}
-                                            {{/link}}
-
-                                            <span>
-                                                {{#if editor}}
-                                                    {{date edited_at timeago=true}}
-                                                {{else}}
-                                                    {{date created_at timeago=true}}
-                                                {{/if}}
-                                            </span>
-                                        </div>
-
-                                        <div class="comments__item-actions-container">
-                                            {{#unless official}}
-                                                <div class="comments__item-vote">
-                                                    {{#vote 'down' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
-                                                        <span>-</span>
-                                                    {{/vote}}
-                                                    <span>{{vote 'sum'}}</span>
-                                                    {{#vote 'up' class='btn btn--xs btn--circle btn--gray' role='button' selected_class='vote-control--voted'}}
-                                                        <span>+</span>
-                                                    {{/vote}}
-                                                </div>
-                                            {{/unless}}
-                                            <div class="comments__item-actions">
-                                                {{actions}}
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </li>
-                        {{/each}}
-                    </ul>
-
-                    {{pagination}}
-
-
+                  </div>
                 </div>
-            {{/if}}
 
-            {{! Post comment form }}
-            <div class="page-content__bordered-box">
-                <h3 class="comments__title">{{t 'add_comment'}}</h3>
-                <p class="comments__subtitle">{{comment_callout}}</p>
+              </li>
+            {{/each}}
+          </ul>
 
-                {{#form 'comment' class='comment-form'}}
-                    {{user_avatar class='comment-form__avatar'}}
-                    <div class="comment-form__body">
-                        {{wysiwyg 'body'}}
-                        <button type="submit" class="comment-form__submit">
-                            <i class="fab fa-telegram-plane"></i>
-                        </button>
-                    </div>
-                    <div class="comment-form__body">
-                        <div class="form-field"></div>
-                        <div class="comment-form__control">
-                            <div class="form-field boolean">
-                                {{checkbox 'official'}}
-                                {{label 'official'}}
-                            </div>
-                        </div>
-                    </div>
-                {{/form}}
-            </div>
+          {{pagination}}
+
 
         </div>
+      {{/if}}
+
+      {{! Post comment form }}
+      <div class="page-content__bordered-box">
+        <h3 class="comments__title">{{t 'add_comment'}}</h3>
+        <p class="comments__subtitle">{{comment_callout}}</p>
+
+        {{#form 'comment' class='comment-form'}}
+          {{user_avatar class='comment-form__avatar'}}
+          <div class="comment-form__body">
+            {{wysiwyg 'body'}}
+            <button type="submit" class="comment-form__submit">
+              <i class="fab fa-telegram-plane"></i>
+            </button>
+          </div>
+          <div class="comment-form__body">
+            <div class="form-field"></div>
+            <div class="comment-form__control">
+              <div class="form-field boolean">
+                {{checkbox 'official'}}
+                {{label 'official'}}
+              </div>
+            </div>
+          </div>
+        {{/form}}
+      </div>
+
     </div>
+  </div>
 </div>

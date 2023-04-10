@@ -2,151 +2,151 @@
 <div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
      data-heading-style="{{settings.page_heading_style}}"
 >
-    <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
-        <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
-        <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs" data-plugin-breadcrumbs>
+      {{breadcrumbs}}
     </div>
 
-    <div class="container">
-        <div class="page-heading__breadcrumbs">
-            {{breadcrumbs}}
-        </div>
-
-        <div class="page-heading__content">
-            <div class="page-heading__content-left">
-                <h1 class="h1 page-heading__title {{#if topic.internal}}articles__link--internal{{/if}}">{{topic.name}}</h1>
-                {{#if topic.description}}
-                    <p class="page-heading__description">{{topic.description}}</p>
-                {{/if}}
-            </div>
-            <div class="subscribe-btn page-heading__content-right is-hidden--type-2">
-                {{link 'new_post' role='button' class='btn btn--primary'}}
-            </div>
-        </div>
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title {{#if topic.internal}}articles__link--internal{{/if}}">{{topic.name}}</h1>
+        {{#if topic.description}}
+          <p class="page-heading__description">{{topic.description}}</p>
+        {{/if}}
+      </div>
+      <div class="subscribe-btn page-heading__content-right is-hidden--type-2">
+        {{link 'new_post' role='button' class='btn btn--primary'}}
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="container">
 
-    <div class="row">
+  <div class="row">
 
-        <div class="col--lg-up-8 page-content page-content--without-margin">
-            <div class="btn-group">
+    <div class="col--lg-up-8 page-content page-content--without-margin">
+      <div class="btn-group">
 
-                <div class="dropdown" data-plugin-dropdown>
-                    <a class="btn btn--light btn--md btn--sm-xs js-dropdown-open" tabindex="0" role="button" aria-label="Open">
-                        <span>{{current_filter.label}}</span>
-                        <small class="fas fa-angle-down"></small>
+        <div class="dropdown" data-plugin-dropdown>
+          <a class="btn btn--light btn--md btn--sm-xs js-dropdown-open" tabindex="0" role="button" aria-label="Open">
+            <span>{{current_filter.label}}</span>
+            <small class="fas fa-angle-down"></small>
+          </a>
+          <div class="dropdown__content dropdown__content--sm js-dropdown" role="menu" aria-hidden="true">
+            {{#each filters}}
+              <a href="{{url}}" aria-selected="{{selected}}" class="dropdown__menuitem" role="menuitem">
+                {{name}}
+              </a>
+            {{/each}}
+          </div>
+        </div>
+
+        <div class="dropdown" data-plugin-dropdown>
+          <a class="btn btn--light btn--md btn--sm-xs js-dropdown-open" tabindex="0" role="button" aria-label="Open">
+            <span>{{current_sorter.label}}</span>
+            <small class="fas fa-angle-down"></small>
+          </a>
+          <div class="dropdown__content dropdown__content--sm js-dropdown" role="menu" aria-hidden="true">
+            {{#each sorters}}
+              <a href="{{url}}" aria-selected="{{selected}}" class="dropdown__menuitem" role="menuitem">
+                {{name}}
+              </a>
+            {{/each}}
+          </div>
+        </div>
+
+      </div>
+
+      {{#if posts}}
+        <div class="articles articles--simple articles--bordered" id="main-content">
+          {{#each posts}}
+            <div class="articles__item">
+              <a href="{{url}}" class="articles__link articles__link--h3">
+                <span>{{title}}</span>
+                {{#if pinned}}
+                  <span class="post-status post-status--pinned">{{t 'pinned'}}</span>
+                {{/if}}
+
+                {{#if featured}}
+                  <span class="post-status post-status--featured">{{t 'featured'}}</span>
+                {{/if}}
+
+                {{#is status 'none'}}
+                {{else}}
+                  <span class="post-status post-status--{{status_dasherized}}">{{status_name}}</span>
+                {{/is}}
+              </a>
+              <div class="articles__body"></div>
+              <div class="articles__meta">
+                {{#isnt ../settings.author_type 'none'}}
+                  {{#if author.url}}
+                    <a href="{{author.url}}" class="articles__author">
+                      {{#is ../settings.author_type 'avatar'}}
+                        <img src="{{author.avatar_url}}" alt="{{author.name}}">
+                      {{/is}}
+                      <span>{{author.name}}</span>
                     </a>
-                    <div class="dropdown__content dropdown__content--sm js-dropdown" role="menu" aria-hidden="true">
-                        {{#each filters}}
-                            <a href="{{url}}" aria-selected="{{selected}}" class="dropdown__menuitem" role="menuitem">
-                                {{name}}
-                            </a>
-                        {{/each}}
-                    </div>
-                </div>
-
-                <div class="dropdown" data-plugin-dropdown>
-                    <a class="btn btn--light btn--md btn--sm-xs js-dropdown-open" tabindex="0" role="button" aria-label="Open">
-                        <span>{{current_sorter.label}}</span>
-                        <small class="fas fa-angle-down"></small>
-                    </a>
-                    <div class="dropdown__content dropdown__content--sm js-dropdown" role="menu" aria-hidden="true">
-                        {{#each sorters}}
-                            <a href="{{url}}" aria-selected="{{selected}}" class="dropdown__menuitem" role="menuitem">
-                                {{name}}
-                            </a>
-                        {{/each}}
-                    </div>
-                </div>
-
-            </div>
-
-            {{#if posts}}
-                <div class="articles articles--simple articles--bordered" id="main-content">
-                    {{#each posts}}
-                        <div class="articles__item">
-                            <a href="{{url}}" class="articles__link articles__link--h3">
-                                <span>{{title}}</span>
-                                {{#if pinned}}
-                                    <span class="post-status post-status--pinned">{{t 'pinned'}}</span>
-                                {{/if}}
-
-                                {{#if featured}}
-                                    <span class="post-status post-status--featured">{{t 'featured'}}</span>
-                                {{/if}}
-
-                                {{#is status 'none'}}
-                                {{else}}
-                                    <span class="post-status post-status--{{status_dasherized}}">{{status_name}}</span>
-                                {{/is}}
-                            </a>
-                            <div class="articles__body"></div>
-                            <div class="articles__meta">
-                                {{#isnt ../settings.author_type 'none'}}
-                                    {{#if author.url}}
-                                        <a href="{{author.url}}" class="articles__author">
+                  {{else}}
+                    <span class="articles__author">
                                             {{#is ../settings.author_type 'avatar'}}
-                                                <img src="{{author.avatar_url}}" alt="{{author.name}}">
+                                              <img src="{{author.avatar_url}}" alt="{{author.name}}">
                                             {{/is}}
-                                            <span>{{author.name}}</span>
-                                        </a>
-                                    {{else}}
-                                        <span class="articles__author">
-                                            {{#is ../settings.author_type 'avatar'}}
-                                                <img src="{{author.avatar_url}}" alt="{{author.name}}">
-                                            {{/is}}
-                                            <span>{{author.name}}</span>
+                      <span>{{author.name}}</span>
                                         </span>
-                                    {{/if}}
-                                {{/isnt}}
-                                {{#if ../settings.date_enable}}
-                                    {{#if editor}}
-                                        <span>{{date edited_at timeago=true}} {{t 'edited'}}</span>
-                                    {{else}}
-                                        <span>{{date created_at timeago=true}}</span>
-                                    {{/if}}
-                                {{/if}}
-                                <span>{{vote_sum}} {{t 'vote' count=vote_sum}}</span>
-                                <span>{{comment_count}} {{t 'comment' count=comment_count}}</span>
-                            </div>
-                        </div>
-                    {{/each}}
-                </div>
-
-                {{pagination}}
-            {{else}}
-                <p>{{t 'no_content'}}</p>
-            {{/if}}
-        </div>
-
-        <div class="col--lg-up-4 page-content page-content--without-margin">
-            <div class="sidebar">
-                <div class="row">
-                    {{#if featured_posts}}
-                        <section class="col--sm-6 col--md-6 sidebar__box">
-                            <h3>{{t 'featured_posts'}}</h3>
-                            <div class="articles articles--simple">
-                                {{#each featured_posts}}
-                                    <div class="articles__item">
-                                        <a href="{{url}}" class="articles__link">
-                                            {{title}}
-                                        </a>
-                                    </div>
-                                {{/each}}
-                            </div>
-                        </section>
-                    {{/if}}
-
-                    {{#if help_center.community_enabled}}
-                        <section class="col--sm-6 col--md-6 sidebar__box activity activity--sidebar">
-                            {{recent_activity scope='community'}}
-                        </section>
-                    {{/if}}
-                </div>
+                  {{/if}}
+                {{/isnt}}
+                {{#if ../settings.date_enable}}
+                  {{#if editor}}
+                    <span>{{date edited_at timeago=true}} {{t 'edited'}}</span>
+                  {{else}}
+                    <span>{{date created_at timeago=true}}</span>
+                  {{/if}}
+                {{/if}}
+                <span>{{vote_sum}} {{t 'vote' count=vote_sum}}</span>
+                <span>{{comment_count}} {{t 'comment' count=comment_count}}</span>
+              </div>
             </div>
+          {{/each}}
         </div>
 
+        {{pagination}}
+      {{else}}
+        <p>{{t 'no_content'}}</p>
+      {{/if}}
     </div>
+
+    <div class="col--lg-up-4 page-content page-content--without-margin">
+      <div class="sidebar">
+        <div class="row">
+          {{#if featured_posts}}
+            <section class="col--sm-6 col--md-6 sidebar__box">
+              <h3>{{t 'featured_posts'}}</h3>
+              <div class="articles articles--simple">
+                {{#each featured_posts}}
+                  <div class="articles__item">
+                    <a href="{{url}}" class="articles__link">
+                      {{title}}
+                    </a>
+                  </div>
+                {{/each}}
+              </div>
+            </section>
+          {{/if}}
+
+          {{#if help_center.community_enabled}}
+            <section class="col--sm-6 col--md-6 sidebar__box activity activity--sidebar">
+              {{recent_activity scope='community'}}
+            </section>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

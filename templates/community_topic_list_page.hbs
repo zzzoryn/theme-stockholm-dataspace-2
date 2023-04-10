@@ -2,54 +2,54 @@
 <div class="page-heading page-heading--type-{{settings.page_heading_type}} page-heading--style-{{settings.page_heading_style}}"
      data-heading-style="{{settings.page_heading_style}}"
 >
-    <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
-        <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
-        <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  <div class="welcome__bg {{#if settings.welcome_mask_enable}}welcome__bg--with-mask{{/if}}">
+    <img class="welcome__bg-image is-hidden--ui-dark" src="{{settings.welcome_bg}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+    <img class="welcome__bg-image is-hidden--ui-light" src="{{settings.welcome_bg_dark}}" alt="{{settings.welcome_title}}" data-plugin-load-image>
+  </div>
+
+  <div class="container">
+    <div class="page-heading__breadcrumbs" data-plugin-breadcrumbs>
+      {{breadcrumbs}}
     </div>
 
-    <div class="container">
-        <div class="page-heading__breadcrumbs">
-            {{breadcrumbs}}
+    <div class="page-heading__content">
+      <div class="page-heading__content-left">
+        <h1 class="h1 page-heading__title">{{t 'community_topics'}}</h1>
+        <div class="page-heading__nav">
+          <span class="btn btn--md btn--primary is-active no-hover">{{t 'show_topics'}}</span>
+          {{#link 'posts' class='btn btn--md btn--color-primary page-heading__btn'}}
+            {{t 'show_all_posts'}}
+          {{/link}}
+          {{link 'new_post' role='button' class='btn btn--md btn--color-primary page-heading__btn is-hidden--type-1'}}
         </div>
-
-        <div class="page-heading__content">
-            <div class="page-heading__content-left">
-                <h1 class="h1 page-heading__title">{{t 'community_topics'}}</h1>
-                <div class="page-heading__nav">
-                    <span class="btn btn--md btn--primary is-active no-hover">{{t 'show_topics'}}</span>
-                    {{#link 'posts' class='btn btn--md btn--color-primary page-heading__btn'}}
-                        {{t 'show_all_posts'}}
-                    {{/link}}
-                    {{link 'new_post' role='button' class='btn btn--md btn--color-primary page-heading__btn is-hidden--type-1'}}
-                </div>
-            </div>
-            <div class="subscribe-btn page-heading__content-right is-hidden--type-2">
-                {{link 'new_post' role='button' class='btn btn--primary'}}
-            </div>
-        </div>
+      </div>
+      <div class="subscribe-btn page-heading__content-right is-hidden--type-2">
+        {{link 'new_post' role='button' class='btn btn--primary'}}
+      </div>
     </div>
+  </div>
 </div>
 
 {{#if topics}}
-    <div class="container page-content category-blocks category-blocks--type-{{settings.category_blocks_type}}">
-        <div class="row">
-            {{#each topics}}
-                <div class="col--md-up-6 category-blocks__item">
-                    <a href="{{url}}" class="category-blocks__link">
-                        <span class="h3 category-blocks__title {{#if internal}}articles__link--internal{{/if}}">{{name}}</span>
-                        <span class="category-blocks__description">{{excerpt description}}</span>
-                        <span class="category-blocks__meta">
-                            <span>{{t 'post_count' count=post_count}}</span>
-                            <span>{{t 'follower_count' count=follower_count}}</span>
-                        </span>
-                    </a>
-                </div>
-            {{/each}}
+  <div class="container page-content category-blocks category-blocks--type-{{settings.category_blocks_type}}">
+    <div class="row">
+      {{#each topics}}
+        <div class="col--md-up-6 category-blocks__item">
+          <a href="{{url}}" class="category-blocks__link">
+            <span class="h3 category-blocks__title {{#if internal}}articles__link--internal{{/if}}">{{name}}</span>
+            <span class="category-blocks__description">{{excerpt description}}</span>
+            <span class="category-blocks__meta">
+              <span>{{t 'post_count' count=post_count}}</span>
+              <span>{{t 'follower_count' count=follower_count}}</span>
+            </span>
+          </a>
         </div>
+      {{/each}}
     </div>
-    {{pagination}}
+  </div>
+  {{pagination}}
 {{else}}
-    <div class="container page-content">
-        <p>{{t 'no_content'}}</p>
-    </div>
+  <div class="container page-content">
+    <p>{{t 'no_content'}}</p>
+  </div>
 {{/if}}
