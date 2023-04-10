@@ -11,8 +11,8 @@
         {
           "identifier": "translations_enable",
           "type": "checkbox",
-          "label": "Enable translations",
           "description": "Enable a dynamic content instead of a static text",
+          "label": "Enable translations",
           "value": false
         }
       ]
@@ -47,85 +47,85 @@
         {
           "identifier": "primary_color",
           "type": "color",
-          "label": "Primary color",
           "description": "Primary color",
+          "label": "Primary color",
           "value": "#0a4393"
         },
         {
           "identifier": "secondary_color",
           "type": "color",
-          "label": "Secondary color",
           "description": "Secondary color",
+          "label": "Secondary color",
           "value": "#77cc09"
         },
         {
           "identifier": "primary_bg_color",
           "type": "color",
-          "label": "Primary bg color",
           "description": "Background color of your Help Center",
+          "label": "Primary bg color",
           "value": "#FFFFFF"
         },
         {
           "identifier": "secondary_bg_color",
           "type": "color",
-          "label": "Secondary bg color",
           "description": "Background color of your sections",
+          "label": "Secondary bg color",
           "value": "#F5F5F5"
         },
         {
           "identifier": "primary_text_color",
           "type": "color",
-          "label": "Primary text color",
           "description": "Text color for body",
+          "label": "Primary text color",
           "value": "#3A4A61"
         },
         {
           "identifier": "secondary_text_color",
           "type": "color",
-          "label": "Secondary text color",
           "description": "Text color for subheading elements",
+          "label": "Secondary text color",
           "value": "#585858"
         },
         {
           "identifier": "link_color",
           "type": "color",
-          "label": "Link color",
           "description": "Text color for link elements",
+          "label": "Link color",
           "value": "#0a4393"
         },
         {
           "identifier": "border_color",
           "type": "color",
-          "label": "Border color",
           "description": "Border color for elements",
+          "label": "Border color",
           "value": "#B1C3DC"
         },
         {
           "identifier": "info_color",
           "type": "color",
-          "label": "Brand info color",
           "description": "Info color",
+          "label": "Brand info color",
           "value": "#0a4393"
         },
         {
           "identifier": "success_color",
           "type": "color",
-          "label": "Brand success color",
           "description": "Success color",
+          "label": "Brand success color",
           "value": "#77cc09"
         },
         {
           "identifier": "warning_color",
           "type": "color",
-          "label": "Brand warning color",
           "description": "Warning color",
+          "label": "Brand warning color",
           "value": "#f2be49"
         },
         {
           "identifier": "danger_color",
           "type": "color",
-          "label": "Brand danger color",
           "description": "Danger color",
+          "label": "Brand danger color",
           "value": "#e64545"
         }
       ]
@@ -136,99 +136,99 @@
         {
           "identifier": "dark_mode",
           "type": "checkbox",
-          "label": "Enable dark mode",
           "description": "Enable dark mode as default color scheme",
+          "label": "Enable dark mode",
           "value": false
         },
         {
           "identifier": "prefers_color_scheme",
           "type": "checkbox",
-          "label": "Prefers color scheme",
           "description": "Enable the user's preferred color scheme from their OS settings",
+          "label": "Prefers color scheme",
           "value": false
         },
         {
           "identifier": "primary_color_dark",
           "type": "color",
-          "label": "Primary color",
           "description": "Primary color",
+          "label": "Primary color",
           "value": "#1863BC"
         },
         {
           "identifier": "secondary_color_dark",
           "type": "color",
-          "label": "Secondary color",
           "description": "Secondary color",
+          "label": "Secondary color",
           "value": "#6DBC1D"
         },
         {
           "identifier": "primary_bg_color_dark",
           "type": "color",
-          "label": "Primary bg color",
           "description": "Background color of your Help Center",
+          "label": "Primary bg color",
           "value": "#000C20"
         },
         {
           "identifier": "secondary_bg_color_dark",
           "type": "color",
-          "label": "Secondary bg color",
           "description": "Background color of your sections",
+          "label": "Secondary bg color",
           "value": "#182233"
         },
         {
           "identifier": "primary_text_color_dark",
           "type": "color",
-          "label": "Primary text color",
           "description": "Text color for body",
+          "label": "Primary text color",
           "value": "#FFFFFF"
         },
         {
           "identifier": "secondary_text_color_dark",
           "type": "color",
-          "label": "Secondary text color",
           "description": "Text color for subheading elements",
+          "label": "Secondary text color",
           "value": "#8290A8"
         },
         {
           "identifier": "link_color_dark",
           "type": "color",
-          "label": "Link color",
           "description": "Text color for link elements",
+          "label": "Link color",
           "value": "#1863BC"
         },
         {
           "identifier": "border_color_dark",
           "type": "color",
-          "label": "Border color",
           "description": "Border color for elements",
+          "label": "Border color",
           "value": "#242f42"
         },
         {
           "identifier": "info_color_dark",
           "type": "color",
-          "label": "Brand info color",
           "description": "Info color",
+          "label": "Brand info color",
           "value": "#1863BC"
         },
         {
           "identifier": "success_color_dark",
           "type": "color",
-          "label": "Brand success color",
           "description": "Success color",
+          "label": "Brand success color",
           "value": "#67C30B"
         },
         {
           "identifier": "warning_color_dark",
           "type": "color",
-          "label": "Brand warning color",
           "description": "Warning color",
+          "label": "Brand warning color",
           "value": "#F1D52F"
         },
         {
           "identifier": "danger_color_dark",
           "type": "color",
-          "label": "Brand danger color",
           "description": "Danger color",
+          "label": "Brand danger color",
           "value": "#e64545"
         }
       ]
@@ -239,8 +239,8 @@
         {
           "identifier": "text_font_family",
           "type": "list",
-          "label": "Text font",
           "description": "Font for body text",
+          "label": "Text font",
           "value": "Arial,Noto Sans,sans-serif",
           "options": [
             {
@@ -288,8 +288,8 @@
         {
           "identifier": "heading_font_family",
           "type": "list",
-          "label": "Heading font",
           "description": "Font for headings",
+          "label": "Heading font",
           "value": "Arial,Noto Sans,sans-serif",
           "options": [
             {
@@ -381,15 +381,15 @@
         {
           "identifier": "layout_in_container",
           "type": "checkbox",
-          "label": "Container view",
           "description": "Wrap the layout in the container",
+          "label": "Container view",
           "value": false
         },
         {
           "identifier": "layout_style",
           "type": "list",
-          "label": "Sections style",
           "description": "Style of sections",
+          "label": "Sections style",
           "value": "bordered",
           "options": [
             {
@@ -428,8 +428,8 @@
         {
           "identifier": "header_type",
           "type": "list",
-          "label": "Header type",
           "description": "Layout type of the header element",
+          "label": "Header type",
           "value": "2",
           "options": [
             {
@@ -445,8 +445,8 @@
         {
           "identifier": "header_style",
           "type": "list",
-          "label": "Header style",
           "description": "Style of the header element",
+          "label": "Header style",
           "value": "1",
           "options": [
             {
@@ -470,15 +470,15 @@
         {
           "identifier": "header_is_fixed",
           "type": "checkbox",
-          "label": "Header is fixed",
           "description": "Fix header on page scrolling",
+          "label": "Header is fixed",
           "value": true
         },
         {
           "identifier": "header_link_type",
           "type": "list",
-          "label": "Header link type",
           "description": "Layout type of the header element",
+          "label": "Header link type",
           "value": "none",
           "options": [
             {
@@ -498,22 +498,22 @@
         {
           "identifier": "header_link_text",
           "type": "text",
-          "label": "Header link text",
           "description": "Text for the custom link",
+          "label": "Header link text",
           "value": "-"
         },
         {
           "identifier": "header_link_url",
           "type": "text",
-          "label": "Header link URL",
           "description": "URL for the custom link",
+          "label": "Header link URL",
           "value": "#"
         },
         {
           "identifier": "signin_enable",
           "type": "checkbox",
-          "label": "Enable sign in",
           "description": "Enable the sign in button",
+          "label": "Enable sign in",
           "value": true
         }
       ]
@@ -524,8 +524,8 @@
         {
           "identifier": "welcome_type",
           "type": "list",
-          "label": "Welcome type",
           "description": "Layout type of the welcome component",
+          "label": "Welcome type",
           "value": "3",
           "options": [
             {
@@ -545,8 +545,8 @@
         {
           "identifier": "welcome_style",
           "type": "list",
-          "label": "Welcome style",
           "description": "Style of the welcome component",
+          "label": "Welcome style",
           "value": "2",
           "options": [
             {
@@ -566,8 +566,8 @@
         {
           "identifier": "welcome_size",
           "type": "list",
-          "label": "Welcome size",
           "description": "Welcome box size",
+          "label": "Welcome size",
           "value": "medium",
           "options": [
             {
@@ -587,53 +587,53 @@
         {
           "identifier": "welcome_bg",
           "type": "file",
-          "label": "Background image",
-          "description": "Welcome background image"
+          "description": "Welcome background image",
+          "label": "Background image"
         },
         {
           "identifier": "welcome_bg_dark",
           "type": "file",
-          "label": "Dark background image",
-          "description": "Welcome background image for the dark mode"
+          "description": "Welcome background image for the dark mode",
+          "label": "Dark background image"
         },
         {
           "identifier": "welcome_image",
           "type": "file",
-          "label": "Welcome image",
-          "description": "Welcome secondary image"
+          "description": "Welcome secondary image",
+          "label": "Welcome image"
         },
         {
           "identifier": "welcome_image_dark",
           "type": "file",
-          "label": "Dark welcome image",
-          "description": "Welcome secondary image for the dark background"
+          "description": "Welcome secondary image for the dark background",
+          "label": "Dark welcome image"
         },
         {
           "identifier": "welcome_mask_enable",
           "type": "checkbox",
-          "label": "Enable welcome mask",
           "description": "Enable the banner mask",
+          "label": "Enable welcome mask",
           "value": true
         },
         {
           "identifier": "welcome_title",
           "type": "text",
-          "label": "Welcome title",
           "description": "Text above the search field",
+          "label": "Welcome title",
           "value": "How can we help you?"
         },
         {
           "identifier": "welcome_description",
           "type": "text",
-          "label": "Welcome description",
           "description": "Text above the search field",
+          "label": "Welcome description",
           "value": "Scroll down our page for more support options."
         },
         {
           "identifier": "search_placeholder",
           "type": "text",
-          "label": "Search placeholder",
           "description": "Text for the search field",
+          "label": "Search placeholder",
           "value": "Type your question here..."
         }
       ]
@@ -644,15 +644,15 @@
         {
           "identifier": "helpers_enable",
           "type": "checkbox",
-          "label": "Enable helpers",
           "description": "Enable the helpers component",
+          "label": "Enable helpers",
           "value": true
         },
         {
           "identifier": "helpers_type",
           "type": "list",
-          "label": "Helpers type",
           "description": "Layout type of the helpers component",
+          "label": "Helpers type",
           "value": "2",
           "options": [
             {
@@ -672,8 +672,8 @@
         {
           "identifier": "helpers_style",
           "type": "list",
-          "label": "Helpers style",
           "description": "Style of the helpers component",
+          "label": "Helpers style",
           "value": "2",
           "options": [
             {
@@ -698,41 +698,41 @@
         {
           "identifier": "helper_1_enable",
           "type": "checkbox",
-          "label": "Enable helper 1",
           "description": "Enable helper 1",
+          "label": "Enable helper 1",
           "value": true
         },
         {
           "identifier": "helper_1_icon",
           "type": "file",
-          "label": "Helper 1 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper 1 icon"
         },
         {
           "identifier": "helper_1_icon_2",
           "type": "file",
-          "label": "Helper secondary 1 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper secondary 1 icon"
         },
         {
           "identifier": "helper_1_title",
           "type": "text",
-          "label": "Helper 1 title",
           "description": "Helper 1 title",
+          "label": "Helper 1 title",
           "value": "FAQ"
         },
         {
           "identifier": "helper_1_description",
           "type": "text",
-          "label": "Helper 1 description",
           "description": "Helper 1 description",
+          "label": "Helper 1 description",
           "value": "Questions? Find the answer to any question."
         },
         {
           "identifier": "helper_1_url",
           "type": "text",
-          "label": "Helper 1 url",
           "description": "Helper 1 url",
+          "label": "Helper 1 url",
           "value": "https://eu-cdse.github.io/documentation/FAQ.html"
         }
       ]
@@ -743,41 +743,41 @@
         {
           "identifier": "helper_2_enable",
           "type": "checkbox",
-          "label": "Enable helper 2",
           "description": "Enable helper 2",
+          "label": "Enable helper 2",
           "value": true
         },
         {
           "identifier": "helper_2_icon",
           "type": "file",
-          "label": "Helper 2 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper 2 icon"
         },
         {
           "identifier": "helper_2_icon_2",
           "type": "file",
-          "label": "Helper secondary 2 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper secondary 2 icon"
         },
         {
           "identifier": "helper_2_title",
           "type": "text",
-          "label": "Helper 2 title",
           "description": "Helper 2 title",
+          "label": "Helper 2 title",
           "value": "Documentation Center"
         },
         {
           "identifier": "helper_2_description",
           "type": "text",
-          "label": "Helper 2 description",
           "description": "Helper 2 description",
+          "label": "Helper 2 description",
           "value": "Need help? We have you covered."
         },
         {
           "identifier": "helper_2_url",
           "type": "text",
-          "label": "Helper 2 url",
           "description": "Helper 2 url",
+          "label": "Helper 2 url",
           "value": "https://eu-cdse.github.io/documentation/Home.html"
         }
       ]
@@ -788,41 +788,41 @@
         {
           "identifier": "helper_3_enable",
           "type": "checkbox",
-          "label": "Enable helper 3",
           "description": "Enable helper 3",
-          "value": true
+          "label": "Enable helper 3",
+          "value": false
         },
         {
           "identifier": "helper_3_icon",
           "type": "file",
-          "label": "Helper 3 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper 3 icon"
         },
         {
           "identifier": "helper_3_icon_2",
           "type": "file",
-          "label": "Helper secondary 3 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper secondary 3 icon"
         },
         {
           "identifier": "helper_3_title",
           "type": "text",
-          "label": "Helper 3 title",
           "description": "Helper 3 title",
+          "label": "Helper 3 title",
           "value": "Performance dashboard"
         },
         {
           "identifier": "helper_3_description",
           "type": "text",
-          "label": "Helper 3 description",
           "description": "Helper 3 description",
+          "label": "Helper 3 description",
           "value": "-"
         },
         {
           "identifier": "helper_3_url",
           "type": "text",
-          "label": "Helper 3 url",
           "description": "Helper 3 url",
+          "label": "Helper 3 url",
           "value": "https://dashboards.terrascope.be/status"
         }
       ]
@@ -833,41 +833,41 @@
         {
           "identifier": "helper_4_enable",
           "type": "checkbox",
-          "label": "Enable helper 4",
           "description": "Enable helper 4",
+          "label": "Enable helper 4",
           "value": true
         },
         {
           "identifier": "helper_4_icon",
           "type": "file",
-          "label": "Helper 4 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper 4 icon"
         },
         {
           "identifier": "helper_4_icon_2",
           "type": "file",
-          "label": "Helper secondary 4 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper secondary 4 icon"
         },
         {
           "identifier": "helper_4_title",
           "type": "text",
-          "label": "Helper 4 title",
           "description": "Helper 4 title",
+          "label": "Helper 4 title",
           "value": "Submit a request"
         },
         {
           "identifier": "helper_4_description",
           "type": "text",
-          "label": "Helper 4 description",
           "description": "Helper 4 description",
+          "label": "Helper 4 description",
           "value": "Contact us through a specially prepared form."
         },
         {
           "identifier": "helper_4_url",
           "type": "text",
-          "label": "Helper 4 url",
           "description": "Helper 4 url",
+          "label": "Helper 4 url",
           "value": "/hc/requests/new"
         }
       ]
@@ -878,41 +878,41 @@
         {
           "identifier": "helper_5_enable",
           "type": "checkbox",
-          "label": "Enable helper 5",
           "description": "Enable helper 5",
+          "label": "Enable helper 5",
           "value": false
         },
         {
           "identifier": "helper_5_icon",
           "type": "file",
-          "label": "Helper 5 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper 5 icon"
         },
         {
           "identifier": "helper_5_icon_2",
           "type": "file",
-          "label": "Helper secondary 5 icon",
-          "description": "We recommend uploading the icon in the SVG format"
+          "description": "We recommend uploading the icon in the SVG format",
+          "label": "Helper secondary 5 icon"
         },
         {
           "identifier": "helper_5_title",
           "type": "text",
-          "label": "Helper 5 title",
           "description": "Helper 5 title",
+          "label": "Helper 5 title",
           "value": "Submit a request"
         },
         {
           "identifier": "helper_5_description",
           "type": "text",
-          "label": "Helper 5 description",
           "description": "Helper 5 description",
+          "label": "Helper 5 description",
           "value": "Contact us through a specially prepared form."
         },
         {
           "identifier": "helper_5_url",
           "type": "text",
-          "label": "Helper 5 url",
           "description": "Helper 5 url",
+          "label": "Helper 5 url",
           "value": "/hc/requests/new"
         }
       ]
@@ -923,15 +923,15 @@
         {
           "identifier": "category_blocks_enable",
           "type": "checkbox",
-          "label": "Enable category blocks",
           "description": "Enable the category blocks component",
+          "label": "Enable category blocks",
           "value": false
         },
         {
           "identifier": "category_blocks_type",
           "type": "list",
-          "label": "Category blocks type",
           "description": "Layout type of the category blocks component",
+          "label": "Category blocks type",
           "value": "1",
           "options": [
             {
@@ -952,15 +952,15 @@
         {
           "identifier": "knowledge_enable",
           "type": "checkbox",
-          "label": "Enable knowledge base",
           "description": "Enable the knowledge base component",
+          "label": "Enable knowledge base",
           "value": false
         },
         {
           "identifier": "knowledge_type",
           "type": "list",
-          "label": "Knowledge base type",
           "description": "Layout type of the knowledge base component",
+          "label": "Knowledge base type",
           "value": "1",
           "options": [
             {
@@ -985,15 +985,15 @@
         {
           "identifier": "promoted_enable",
           "type": "checkbox",
-          "label": "Enable promoted articles",
           "description": "Enable the promoted articles component",
+          "label": "Enable promoted articles",
           "value": true
         },
         {
           "identifier": "promoted_type",
           "type": "list",
-          "label": "Promoted articles type",
           "description": "Layout type of the promoted articles component",
+          "label": "Promoted articles type",
           "value": "3",
           "options": [
             {
@@ -1018,15 +1018,15 @@
         {
           "identifier": "activity_enable",
           "type": "checkbox",
-          "label": "Enable recent activity",
           "description": "Enable the recent activity component",
+          "label": "Enable recent activity",
           "value": false
         },
         {
           "identifier": "activity_type",
           "type": "list",
-          "label": "Recent activity type",
           "description": "Layout type of the recent activity component",
+          "label": "Recent activity type",
           "value": "2",
           "options": [
             {
@@ -1047,15 +1047,15 @@
         {
           "identifier": "cta_enable",
           "type": "checkbox",
-          "label": "Enable CTA",
           "description": "Enable the CTA component",
+          "label": "Enable CTA",
           "value": true
         },
         {
           "identifier": "cta_type",
           "type": "list",
-          "label": "CTA type",
           "description": "Layout type of the CTA component",
+          "label": "CTA type",
           "value": "2",
           "options": [
             {
@@ -1071,8 +1071,8 @@
         {
           "identifier": "cta_style",
           "type": "list",
-          "label": "CTA style",
           "description": "Style of the CTA component",
+          "label": "CTA style",
           "value": "4",
           "options": [
             {
@@ -1096,46 +1096,46 @@
         {
           "identifier": "cta_bg",
           "type": "file",
-          "label": "CTA background image",
-          "description": "CTA background image"
+          "description": "CTA background image",
+          "label": "CTA background image"
         },
         {
           "identifier": "cta_bg_dark",
           "type": "file",
-          "label": "Dark CTA background image",
-          "description": "CTA background image for the dark mode"
+          "description": "CTA background image for the dark mode",
+          "label": "Dark CTA background image"
         },
         {
           "identifier": "cta_image",
           "type": "file",
-          "label": "CTA image",
-          "description": "CTA secondary image"
+          "description": "CTA secondary image",
+          "label": "CTA image"
         },
         {
           "identifier": "cta_image_dark",
           "type": "file",
-          "label": "Dark CTA image",
-          "description": "CTA secondary image for the dark background"
+          "description": "CTA secondary image for the dark background",
+          "label": "Dark CTA image"
         },
         {
           "identifier": "cta_mask_enable",
           "type": "checkbox",
-          "label": "Enable CTA mask",
           "description": "Enable the banner mask",
+          "label": "Enable CTA mask",
           "value": true
         },
         {
           "identifier": "cta_title",
           "type": "text",
-          "label": "CTA title",
           "description": "CTA title",
+          "label": "CTA title",
           "value": "-"
         },
         {
           "identifier": "cta_subtitle",
           "type": "text",
-          "label": "CTA subtitle",
           "description": "CTA subtitle",
+          "label": "CTA subtitle",
           "value": "-"
         }
       ]
@@ -1146,8 +1146,8 @@
         {
           "identifier": "footer_style",
           "type": "list",
-          "label": "Footer style",
           "description": "Style of the footer component",
+          "label": "Footer style",
           "value": "1",
           "options": [
             {
@@ -1167,78 +1167,78 @@
         {
           "identifier": "footer_copyright",
           "type": "text",
-          "label": "Copyright",
           "description": "Footer copyright",
+          "label": "Copyright",
           "value": "Copernicus Data Space"
         },
         {
           "identifier": "footer_facebook_enable",
           "type": "checkbox",
-          "label": "Enable Facebook icon",
           "description": "Show or hide the Facebook icon",
+          "label": "Enable Facebook icon",
           "value": true
         },
         {
           "identifier": "footer_facebook_url",
           "type": "text",
-          "label": "Facebook URL",
           "description": "URL to the Facebook account",
+          "label": "Facebook URL",
           "value": "https://facebook.com"
         },
         {
           "identifier": "footer_twitter_enable",
           "type": "checkbox",
-          "label": "Enable Twitter icon",
           "description": "Show or hide the Twitter icon",
+          "label": "Enable Twitter icon",
           "value": true
         },
         {
           "identifier": "footer_twitter_url",
           "type": "text",
-          "label": "Twitter URL",
           "description": "URL to the Twitter account",
+          "label": "Twitter URL",
           "value": "https://twitter.com/CopernicusEU"
         },
         {
           "identifier": "footer_youtube_enable",
           "type": "checkbox",
-          "label": "Enable Youtube icon",
           "description": "Show or hide the Youtube icon",
+          "label": "Enable Youtube icon",
           "value": true
         },
         {
           "identifier": "footer_youtube_url",
           "type": "text",
-          "label": "Youtube URL",
           "description": "URL to the Youtube account",
+          "label": "Youtube URL",
           "value": "https://www.youtube.com/channel/UCpuwnbuwGG20enAdE50g6TA"
         },
         {
           "identifier": "footer_linkedin_enable",
           "type": "checkbox",
-          "label": "Enable LinkedIn icon",
           "description": "Show or hide the LinkedIn icon",
+          "label": "Enable LinkedIn icon",
           "value": false
         },
         {
           "identifier": "footer_linkedin_url",
           "type": "text",
-          "label": "LinkedIn URL",
           "description": "URL to the LinkedIn account",
+          "label": "LinkedIn URL",
           "value": "https://linkedin.com"
         },
         {
           "identifier": "footer_instagram_enable",
           "type": "checkbox",
-          "label": "Enable Instagram icon",
           "description": "Show or hide the Instagram icon",
+          "label": "Enable Instagram icon",
           "value": true
         },
         {
           "identifier": "footer_instagram_url",
           "type": "text",
-          "label": "Instagram URL",
           "description": "URL to the Instagram account",
+          "label": "Instagram URL",
           "value": "https://www.instagram.com/copernicus_eu/"
         }
       ]
@@ -1249,8 +1249,8 @@
         {
           "identifier": "page_heading_type",
           "type": "list",
-          "label": "Page heading type",
           "description": "Type of the inner page heading",
+          "label": "Page heading type",
           "value": "1",
           "options": [
             {
@@ -1266,8 +1266,8 @@
         {
           "identifier": "page_heading_style",
           "type": "list",
-          "label": "Page heading style",
           "description": "Style of the inner page heading",
+          "label": "Page heading style",
           "value": "2",
           "options": [
             {
@@ -1287,14 +1287,14 @@
         {
           "identifier": "error_image",
           "type": "file",
-          "label": "Error image",
-          "description": "Image on the error page"
+          "description": "Image on the error page",
+          "label": "Error image"
         },
         {
           "identifier": "section_blocks_type",
           "type": "list",
-          "label": "Section blocks type",
           "description": "Type of section blocks in the category page",
+          "label": "Section blocks type",
           "value": "3",
           "options": [
             {
@@ -1318,8 +1318,8 @@
         {
           "identifier": "article_blocks_type",
           "type": "list",
-          "label": "Article blocks type",
           "description": "Type of article blocks in the section page",
+          "label": "Article blocks type",
           "value": "1",
           "options": [
             {
@@ -1343,8 +1343,8 @@
         {
           "identifier": "author_type",
           "type": "list",
-          "label": "Enable author",
           "description": "Enable author for content",
+          "label": "Enable author",
           "value": "none",
           "options": [
             {
@@ -1364,8 +1364,8 @@
         {
           "identifier": "date_enable",
           "type": "checkbox",
-          "label": "Enable dates",
           "description": "Enable created at & edited at dates",
+          "label": "Enable dates",
           "value": true
         }
       ]
@@ -1376,8 +1376,8 @@
         {
           "identifier": "article_content_size",
           "type": "list",
-          "label": "Content box size",
           "description": "Article content box size",
+          "label": "Content box size",
           "value": "medium",
           "options": [
             {
@@ -1397,22 +1397,22 @@
         {
           "identifier": "share_enable",
           "type": "checkbox",
-          "label": "Enable share",
           "description": "Enable the sharing content on social media",
+          "label": "Enable share",
           "value": true
         },
         {
           "identifier": "vote_enable",
           "type": "checkbox",
-          "label": "Enable vote",
           "description": "Enable the vote component",
+          "label": "Enable vote",
           "value": true
         },
         {
           "identifier": "vote_style",
           "type": "list",
-          "label": "Vote style",
           "description": "Style of the vote component",
+          "label": "Vote style",
           "value": "2",
           "options": [
             {
@@ -1428,8 +1428,8 @@
         {
           "identifier": "article_lists",
           "type": "list",
-          "label": "Article lists",
           "description": "Type of article lists",
+          "label": "Article lists",
           "value": "recent_section",
           "options": [
             {
@@ -1453,8 +1453,8 @@
         {
           "identifier": "comments_enable",
           "type": "checkbox",
-          "label": "Enable comments",
           "description": "Show comments on articles",
+          "label": "Enable comments",
           "value": true
         }
       ]
